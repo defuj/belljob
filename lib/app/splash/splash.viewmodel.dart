@@ -48,7 +48,7 @@ class SplashViewModel extends ViewModel {
       // 	);
       //   }
       // }
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/main');
     });
   }
 }

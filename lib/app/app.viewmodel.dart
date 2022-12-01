@@ -6,6 +6,10 @@ class AppViewModel extends ViewModel {
   void incrementCounter() {
     counter++;
     notifyListeners();
+
+    if (counter == 3) {
+      Navigator.pushReplacementNamed(context, '/');
+    }
   }
 
   /// A callback after the MVVM widget's initState is called.

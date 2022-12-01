@@ -1,4 +1,4 @@
-import 'package:belljob/app/splash/index.dart';
+import 'package:belljob/app/splash/splash.viewmodel.dart';
 import 'package:belljob/packages.dart';
 
 class Splash extends StatelessWidget {
@@ -18,6 +18,14 @@ class _SplashView extends StatelessView<SplashViewModel> {
 
   @override
   Widget render(context, viewModel) {
-    return Container();
+    // create a splash screen with Scafold
+    return Scaffold(
+      body: Center(
+        child: Text(
+          'Splash Screen',
+          style: Theme.of(context).textTheme.headline4,
+        ),
+      ),
+    );
   }
 }
