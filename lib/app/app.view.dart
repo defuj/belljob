@@ -1,4 +1,4 @@
-import 'package:belljob/app/app.vm.dart';
+import 'package:belljob/app/app.viewmodel.dart';
 import 'package:belljob/packages.dart';
 
 class App extends StatelessWidget {
@@ -19,6 +19,32 @@ class _AppView extends StatelessView<AppViewModel> {
 
   @override
   Widget render(context, viewModel) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Belljob',
+          style: Theme.of(context).textTheme.headline4,
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '${viewModel.counter}',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: viewModel.incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    );
   }
 }

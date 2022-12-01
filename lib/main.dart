@@ -1,4 +1,4 @@
-import 'package:belljob/app/app.view.dart';
+import 'package:belljob/main.routes.dart';
 import 'packages.dart';
 
 void main() {
@@ -90,7 +90,8 @@ class Root extends StatelessWidget {
         colorScheme: darkColorScheme,
         textTheme: textTheme,
       ),
-      home: const App(),
+      initialRoute: '/',
+      routes: routes,
     );
   }
 }

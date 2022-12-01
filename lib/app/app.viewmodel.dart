@@ -1,6 +1,13 @@
-import 'package:pmvvm/pmvvm.dart';
+import 'package:belljob/packages.dart';
 
 class AppViewModel extends ViewModel {
+  int counter = 0;
+
+  void incrementCounter() {
+    counter++;
+    notifyListeners();
+  }
+
   /// A callback after the MVVM widget's initState is called.
   /// See also:
   /// * [onDependenciesChange], which is called when the MVVM widget's [didChangeDependencies]
@@ -11,6 +18,7 @@ class AppViewModel extends ViewModel {
   /// A callback when the MVVM widget's [didChangeDependencies] is called.
   /// For example, when `context.fetch<T>(listen: true/false)` is used within the view model,
   /// then the [onDependenciesChange] method will be called every time these dependencies change.
+  @override
   void onDependenciesChange() {}
 
   /// A callback when the `build` method of the view is called.
@@ -18,9 +26,11 @@ class AppViewModel extends ViewModel {
   void onBuild() {}
 
   /// A callback when the view is mounted.
+  @override
   void onMount() {}
 
   /// A callback when the view is unmounted
+  @override
   void onUnmount() {}
 
   /// Event callback when the application is visible and responding to user input.
