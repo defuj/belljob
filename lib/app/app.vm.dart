@@ -1,6 +1,6 @@
 import 'package:pmvvm/pmvvm.dart';
 
-class AppVm extends ViewModel {
+class AppViewModel extends ViewModel {
   /// A callback after the MVVM widget's initState is called.
   /// See also:
   /// * [onDependenciesChange], which is called when the MVVM widget's [didChangeDependencies]

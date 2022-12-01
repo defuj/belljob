@@ -6,18 +6,19 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MVVM<AppVm>(
-      view: (_, __) => const _AppView(),
-      viewModel: AppVm(),
+    return MVVM<AppViewModel>(
+      view: () => const _AppView(),
+      viewModel: AppViewModel(),
     );
   }
 }
 
-class _AppView extends StatelessView<AppVm> {
-  const _AppView({Key? key}) : super(key: key);
+class _AppView extends StatelessView<AppViewModel> {
+  // set reactive to true to make the view listen to the view model's changes.
+  const _AppView({Key? key}) : super(key: key, reactive: true);
 
   @override
-  Widget render(context, vm) {
+  Widget render(context, viewModel) {
     return Container();
   }
 }
