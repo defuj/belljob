@@ -6,8 +6,37 @@ class AppViewModel extends ViewModel {
   void incrementCounter() {
     counter++;
     notifyListeners();
-
     if (counter == 3) {
+      showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Text(
+            'Kembali ke SplashScreen?',
+            style: Theme.of(context)
+                .textTheme
+                .headline3!
+                .copyWith(color: Theme.of(context).colorScheme.onSurface),
+          ),
+          content: Text(
+            'Kembali ke SplashScreen akan menghapus semua data yang belum disimpan',
+            style: Theme.of(context).textTheme.bodyText2,
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Batal'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pushReplacementNamed(context, '/'),
+              child: const Text('Lanjutkan'),
+            ),
+          ],
+        ),
+      );
+    }
+
+    if (counter == 7) {
       Navigator.pushReplacementNamed(context, '/');
     }
   }

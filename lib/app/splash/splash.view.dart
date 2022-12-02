@@ -21,11 +21,22 @@ class _SplashView extends StatelessView<SplashViewModel> {
     // create a splash screen with Scafold
     return Scaffold(
       body: Center(
-        child: Text(
-          'Splash Screen',
-          style: Theme.of(context).textTheme.headline4,
-        ),
-      ),
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Image(
+            image: AssetImage('assets/images/belljob.logo.png'),
+            width: 135,
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 20),
+            child: Image(
+              image: AssetImage('assets/images/belljob.text.png'),
+              width: 135,
+            ),
+          ),
+        ],
+      )),
     );
   }
 }
