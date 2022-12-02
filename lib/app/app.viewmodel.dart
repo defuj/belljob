@@ -1,3 +1,4 @@
+import 'package:belljob/app/shared/widget/dialog.widget.dart';
 import 'package:belljob/packages.dart';
 
 class AppViewModel extends ViewModel {
@@ -8,30 +9,16 @@ class AppViewModel extends ViewModel {
     notifyListeners();
     if (counter == 3) {
       showDialog(
-        barrierDismissible: false,
         context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: Text(
-            'Kembali ke SplashScreen?',
-            style: Theme.of(context)
-                .textTheme
-                .headline3!
-                .copyWith(color: Theme.of(context).colorScheme.onSurface),
-          ),
-          content: Text(
-            'Kembali ke SplashScreen akan menghapus semua data yang belum disimpan',
-            style: Theme.of(context).textTheme.bodyText2,
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Batal'),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pushReplacementNamed(context, '/'),
-              child: const Text('Lanjutkan'),
-            ),
-          ],
+        barrierDismissible: false,
+        builder: (BuildContext context) => MyAlertDialog(
+          context: context,
+          title: 'Kembali ke SplashScreen?',
+          content:
+              'Kembali ke SplashScreen akan menghapus semua data yang belum disimpan',
+          cancelText: 'Batal',
+          confirmText: 'Lanjutkan',
+          onConfirm: () => Navigator.pushReplacementNamed(context, '/'),
         ),
       );
     }
