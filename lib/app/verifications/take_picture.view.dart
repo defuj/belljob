@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:belljob/app/verifications/index.dart';
 import 'package:belljob/packages.dart';
 import 'package:camera/camera.dart';
+import 'dart:math' as math;
 
 class TakePicture extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -61,9 +62,12 @@ class _TakePictureView extends StatelessView<TakePictureViewModel> {
                       scale: 1,
                       child: Center(
                         child: AspectRatio(
-                          aspectRatio: 1,
-                          child: CameraPreview(viewModel.controller!),
-                        ),
+                            aspectRatio: 1,
+                            child: Transform(
+                              alignment: Alignment.center,
+                              transform: Matrix4.rotationY(math.pi),
+                              child: CameraPreview(viewModel.controller!),
+                            )),
                       ),
                     )
                   : viewModel.imagePath == null
