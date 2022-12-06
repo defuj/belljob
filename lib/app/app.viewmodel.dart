@@ -1,13 +1,24 @@
+import 'dart:developer';
+
 import 'package:belljob/app/shared/widget/dialog.widget.dart';
+import 'package:belljob/app/verifications/take_picture.view.dart';
 import 'package:belljob/packages.dart';
+import 'package:camera/camera.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class AppViewModel extends ViewModel {
   int counter = 0;
 
+  void openTakePicture() async {
+    await availableCameras().then((value) => Navigator.push(context,
+        MaterialPageRoute(builder: (_) => TakePicture(cameras: value))));
+    // Navigator.of(context).pushNamed('/take-picture');
+  }
+
   void incrementCounter() {
     counter++;
     notifyListeners();
-    if (counter == 3) {
+    if (counter == 6) {
       showDialog(
         context: context,
         barrierDismissible: false,
@@ -23,8 +34,24 @@ class AppViewModel extends ViewModel {
       );
     }
 
-    if (counter == 7) {
-      Navigator.pushReplacementNamed(context, '/');
+    if (counter == 3) {
+      DatePicker.showTimePicker(
+        context,
+        showSecondsColumn: false,
+        showTitleActions: true,
+        onConfirm: (time) {
+          log('confirm $time');
+          // format time from yyyy-dd-mm HH:MM:SS to HH:MM
+          String formattedTime = time.toString().substring(11, 16);
+          log('formattedTime $formattedTime');
+
+          // format time from yyyy-dd-mm HH:MM:SS to milliseconds
+          int milliseconds = time.millisecondsSinceEpoch;
+          log('milliseconds $milliseconds');
+        },
+        currentTime: DateTime.now(),
+        locale: LocaleType.id,
+      );
     }
   }
 

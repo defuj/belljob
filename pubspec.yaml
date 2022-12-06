@@ -12,6 +12,7 @@ dependencies:
     flutter_svg: ^1.0.3
     page_transition: ^2.0.5
     firebase_core: ^1.16.0
+    # For Chache Management
     shared_preferences: ^2.0.15
     # For Networking
     dio: ^4.0.6
@@ -22,15 +23,27 @@ dependencies:
     google_fonts: ^3.0.1
     # For Animations
     lottie: ^1.4.1
-    # For Image Slider
+    # For Image Slider/Coraousel
     carousel_slider: ^4.1.1
     # For Date Time Picker
     flutter_datetime_picker: ^1.5.1
     # For Model
     freezed_annotation: ^2.2.0
     json_annotation: ^4.7.0
-    # For Architecture
+    # For Architecture MVVM
     pmvvm: ^4.0.1
+    # Camera Plugin
+    camera: ^0.10.0+4
+    # flutter_better_camera: ^1.0.3
+
+    # Biomertic Auth
+    # local_auth: ^2.1.2
+
+    # Date Range Picker
+    # syncfusion_flutter_datepicker: ^20.3.59
+
+    # Path Provider
+    path_provider: ^2.0.11
 
 dev_dependencies:
     flutter_test:

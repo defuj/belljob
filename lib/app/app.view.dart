@@ -37,6 +37,10 @@ class _AppView extends StatelessView<AppViewModel> {
               '${viewModel.counter}',
               style: Theme.of(context).textTheme.headline4,
             ),
+            ElevatedButton(
+              onPressed: () => viewModel.openTakePicture(),
+              child: const Text('Ambil Gambar'),
+            )
           ],
         ),
       ),
