@@ -1,18 +1,39 @@
-import 'dart:io';
+import 'dart:developer';
 
 import 'package:belljob/packages.dart';
 import 'package:camera/camera.dart';
-import 'package:path_provider/path_provider.dart';
 
 class TakePictureViewModel extends ViewModel {
-  CameraController? controller;
+  String cameraSelected = 'back';
   bool isCameraReady = false;
-  String imagePath = '';
-  CameraDescription? cameraDescription;
+
+  TakePictureViewModel(List<CameraDescription>? cameras,
+      {this.cameraSelected = 'front'}) {
+    this.cameras = cameras!;
+  }
+
+  List<CameraDescription>? _cameras;
+  List<CameraDescription> get cameras => _cameras!;
+  set cameras(List<CameraDescription> value) {
+    _cameras = value;
+  }
+
+  XFile? _imagePath;
+  XFile? get imagePath => _imagePath;
+  set imagePath(XFile? value) {
+    _imagePath = value;
+    notifyListeners();
+  }
+
+  CameraController? _controller;
+  CameraController? get controller => _controller;
+  set controller(CameraController? value) {
+    _controller = value;
+    notifyListeners();
+  }
 
   void initializeCamera(CameraDescription cameraDescription) {
-    controller ??= CameraController(cameraDescription, ResolutionPreset.high);
-    this.cameraDescription = cameraDescription;
+    controller = CameraController(cameraDescription, ResolutionPreset.max);
     initializeController();
   }
 
@@ -20,11 +41,14 @@ class TakePictureViewModel extends ViewModel {
     if (!isCameraReady) {
       await controller?.initialize().then((value) => {isCameraReady = true});
       notifyListeners();
+      log('Camera $cameraSelected is ready');
     }
   }
 
   @override
-  void init() {}
+  void init() {
+    initializeCamera(cameraSelected == 'front' ? cameras[1] : cameras[0]);
+  }
 
   @override
   void onDependenciesChange() {}
@@ -44,7 +68,11 @@ class TakePictureViewModel extends ViewModel {
   }
 
   @override
-  void onResume() {}
+  void onResume() {
+    if (!isCameraReady) {
+      initializeCamera(cameraSelected == 'front' ? cameras[1] : cameras[0]);
+    }
+  }
 
   @override
   void onPause() {
@@ -65,16 +93,10 @@ class TakePictureViewModel extends ViewModel {
   @override
   void onDetach() {}
 
-  Future<String?> takingPicture() async {
+  Future<XFile?> takingPicture() async {
     if (!isCameraReady) {
       return null;
     }
-    final Directory extDir = await getApplicationDocumentsDirectory();
-    final String dirPath = '${extDir.path}/Pictures/flutter_test';
-    await Directory(dirPath).create(recursive: true);
-    // get a timestamp
-    String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
-    final String filePath = '$dirPath/${timestamp()}.jpg';
 
     if (controller!.value.isTakingPicture) {
       // A capture is already pending, do nothing.
@@ -82,11 +104,11 @@ class TakePictureViewModel extends ViewModel {
     }
 
     try {
-      await controller?.takePicture();
+      final XFile? file = await controller?.takePicture();
+      return file;
     } on CameraException {
       return null;
     }
-    return filePath;
   }
 
   void takePicture() async {
@@ -94,12 +116,12 @@ class TakePictureViewModel extends ViewModel {
       takingPicture().then((value) {
         imagePath = value!;
         isCameraReady = false;
-        controller?.dispose();
-        controller = null;
-        notifyListeners();
+        // controller?.dispose();
+        // controller = null;
+        // notifyListeners();
       });
     } else {
-      initializeCamera(cameraDescription!);
+      initializeCamera(cameraSelected == 'front' ? cameras[1] : cameras[0]);
     }
   }
 }

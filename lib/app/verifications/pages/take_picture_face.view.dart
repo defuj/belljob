@@ -1,19 +1,20 @@
 import 'dart:io';
 
 import 'package:belljob/app/verifications/index.dart';
+import 'package:belljob/app/verifications/widget/camera_face.widget.dart';
 import 'package:belljob/packages.dart';
 import 'package:camera/camera.dart';
 import 'dart:math' as math;
 
-class TakePicture extends StatefulWidget {
+class TakePictureFace extends StatefulWidget {
   final List<CameraDescription> cameras;
-  const TakePicture({super.key, required this.cameras});
+  const TakePictureFace({super.key, required this.cameras});
 
   @override
-  State<TakePicture> createState() => _TakePictureState();
+  State<TakePictureFace> createState() => _TakePictureFaceState();
 }
 
-class _TakePictureState extends State<TakePicture> {
+class _TakePictureFaceState extends State<TakePictureFace> {
   @override
   void initState() {
     WidgetsFlutterBinding.ensureInitialized();
@@ -23,16 +24,14 @@ class _TakePictureState extends State<TakePicture> {
   @override
   Widget build(BuildContext context) {
     return MVVM<TakePictureViewModel>(
-      view: () => _TakePictureView(cameras: widget.cameras),
+      view: () => const _TakePictureView(),
       viewModel: TakePictureViewModel(widget.cameras),
     );
   }
 }
 
 class _TakePictureView extends StatelessView<TakePictureViewModel> {
-  final List<CameraDescription> cameras;
-  const _TakePictureView({key, required this.cameras})
-      : super(key: key, reactive: true);
+  const _TakePictureView({key}) : super(key: key, reactive: true);
 
   @override
   Widget render(context, viewModel) {
@@ -56,28 +55,20 @@ class _TakePictureView extends StatelessView<TakePictureViewModel> {
               shape: BoxShape.circle,
               color: Colors.white,
             ),
-            child: ClipOval(
-              child: viewModel.isCameraReady
-                  ? Transform.scale(
-                      scale: 1,
-                      child: Center(
-                        child: AspectRatio(
-                            aspectRatio: 1,
-                            child: Transform(
-                              alignment: Alignment.center,
-                              transform: Matrix4.rotationY(math.pi),
-                              child: CameraPreview(viewModel.controller!),
-                            )),
+            child: viewModel.isCameraReady
+                ? CameraView(viewModel: viewModel)
+                : viewModel.imagePath == null
+                    ? const Center(child: CircularProgressIndicator())
+                    : ClipOval(
+                        child: Transform(
+                          alignment: Alignment.center,
+                          transform: Matrix4.rotationY(math.pi),
+                          child: Image.file(
+                            File(viewModel.imagePath!.path),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
                       ),
-                    )
-                  : viewModel.imagePath == null
-                      ? Image.asset(
-                          'assets/images/male_placeholder.jpeg',
-                          fit: BoxFit.fill,
-                        )
-                      : Image.file(File(viewModel.imagePath!.path),
-                          fit: BoxFit.fill),
-            ),
           ),
           const Spacer(),
           Container(

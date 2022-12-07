@@ -38,9 +38,13 @@ class _AppView extends StatelessView<AppViewModel> {
               style: Theme.of(context).textTheme.headline4,
             ),
             ElevatedButton(
-              onPressed: () => viewModel.openTakePicture(),
-              child: const Text('Ambil Gambar'),
-            )
+              onPressed: () => viewModel.takePictureFace(),
+              child: const Text('Ambil Gambar Wajah'),
+            ),
+            ElevatedButton(
+              onPressed: () => viewModel.takePictureId(),
+              child: const Text('Ambil Gambar e-KTP'),
+            ),
           ],
         ),
       ),

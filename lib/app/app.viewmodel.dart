@@ -1,7 +1,8 @@
 import 'dart:developer';
 
 import 'package:belljob/app/shared/widget/dialog.widget.dart';
-import 'package:belljob/app/verifications/take_picture.view.dart';
+import 'package:belljob/app/verifications/pages/take_picture_face.view.dart';
+import 'package:belljob/app/verifications/pages/take_picture_id.view.dart';
 import 'package:belljob/packages.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -9,10 +10,14 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 class AppViewModel extends ViewModel {
   int counter = 0;
 
-  void openTakePicture() async {
+  void takePictureFace() async {
     await availableCameras().then((value) => Navigator.push(context,
-        MaterialPageRoute(builder: (_) => TakePicture(cameras: value))));
-    // Navigator.of(context).pushNamed('/take-picture');
+        MaterialPageRoute(builder: (_) => TakePictureFace(cameras: value))));
+  }
+
+  void takePictureId() async {
+    await availableCameras().then((value) => Navigator.push(context,
+        MaterialPageRoute(builder: (_) => TakePictureId(cameras: value))));
   }
 
   void incrementCounter() {
