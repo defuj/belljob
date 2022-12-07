@@ -65,7 +65,7 @@ class _TakePictureView extends StatelessView<TakePictureViewModel> {
                           transform: Matrix4.rotationY(math.pi),
                           child: Image.file(
                             File(viewModel.imagePath!.path),
-                            fit: BoxFit.fill,
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),

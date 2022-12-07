@@ -49,9 +49,9 @@ class _TakePictureView extends StatelessView<TakePictureViewModel> {
             padding: const EdgeInsets.all(24),
             child: viewModel.isCameraReady
                 ? CameraIDView(viewModel: viewModel)
-                : viewModel.imagePath != null
-                    ? ResultImageID(imagePath: viewModel.imagePath)
-                    : Container(),
+                : viewModel.imagePath == null
+                    ? Container()
+                    : ResultImageID(imagePath: viewModel.imagePath),
           ),
           Center(
             child: Column(

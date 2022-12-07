@@ -115,8 +115,8 @@ class TakePictureViewModel extends ViewModel {
     if (isCameraReady) {
       takingPicture().then((value) {
         imagePath = value!;
+        controller?.dispose();
         isCameraReady = false;
-        // controller?.dispose();
         // controller = null;
         // notifyListeners();
       });
