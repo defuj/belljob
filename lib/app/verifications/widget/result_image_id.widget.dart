@@ -1,10 +1,11 @@
-import 'package:belljob/app/verifications/index.dart';
+import 'dart:io';
+
 import 'package:belljob/packages.dart';
 import 'package:camera/camera.dart';
 
-class CameraIDView extends StatelessWidget {
-  final TakePictureViewModel? viewModel;
-  const CameraIDView({super.key, required this.viewModel});
+class ResultImageID extends StatelessWidget {
+  final XFile? imagePath;
+  const ResultImageID({super.key, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class CameraIDView extends StatelessWidget {
                     height: MediaQuery.of(context).size.height,
                     child: Stack(
                       children: [
-                        CameraPreview(viewModel!.controller!),
+                        Image.file(File(imagePath!.path), fit: BoxFit.fill),
                       ],
                     ),
                   ),
