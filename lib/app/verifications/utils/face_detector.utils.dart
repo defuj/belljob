@@ -18,8 +18,8 @@ class FaceDetectorUtils {
   void processDetectFace(FaceResult result) async {
     FaceDetectorOptions options = FaceDetectorOptions(
       enableContours: true,
-      enableClassification: false,
-      enableLandmarks: false,
+      enableClassification: true,
+      enableLandmarks: true,
       enableTracking: false,
     );
     FaceDetector faceDetector = FaceDetector(options: options);

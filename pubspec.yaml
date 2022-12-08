@@ -12,6 +12,7 @@ dependencies:
     flutter_svg: ^1.0.3
     page_transition: ^2.0.5
     firebase_core: ^1.16.0
+    fluttertoast: ^8.1.1
     # For Chache Management
     shared_preferences: ^2.0.15
     # For Networking
