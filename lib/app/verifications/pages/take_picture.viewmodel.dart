@@ -192,7 +192,7 @@ class TakePictureViewModel extends ViewModel {
     if (isCameraReady) {
       takingPicture().then((imageFile) {
         FaceDetectorUtils(imageFile: imageFile!).processDetectFace(
-          FaceResult(
+          DetectingResult(
             onFaceDetected: (face) {
               imagePath = imageFile;
               verifyFace(face);
