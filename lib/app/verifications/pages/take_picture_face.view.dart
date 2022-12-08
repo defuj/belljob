@@ -1,10 +1,8 @@
-import 'dart:io';
-
 import 'package:belljob/app/verifications/index.dart';
 import 'package:belljob/app/verifications/widget/camera_face.widget.dart';
+import 'package:belljob/app/verifications/widget/result_image_face.widget.dart';
 import 'package:belljob/packages.dart';
 import 'package:camera/camera.dart';
-import 'dart:math' as math;
 
 class TakePictureFace extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -59,16 +57,7 @@ class _TakePictureView extends StatelessView<TakePictureViewModel> {
                 ? CameraView(viewModel: viewModel)
                 : viewModel.imagePath == null
                     ? const Center(child: CircularProgressIndicator())
-                    : ClipOval(
-                        child: Transform(
-                          alignment: Alignment.center,
-                          transform: Matrix4.rotationY(math.pi),
-                          child: Image.file(
-                            File(viewModel.imagePath!.path),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
+                    : ResultImageFace(imagePath: viewModel.imagePath),
           ),
           const Spacer(),
           Container(

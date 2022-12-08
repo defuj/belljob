@@ -44,6 +44,8 @@ dependencies:
 
     # Path Provider
     path_provider: ^2.0.11
+    # Google ML Kit
+    google_ml_kit: ^0.13.0
 
 dev_dependencies:
     flutter_test:

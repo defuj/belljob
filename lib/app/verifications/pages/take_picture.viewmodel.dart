@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:belljob/app/verifications/utils/face_detector.utils.dart';
 import 'package:belljob/packages.dart';
 import 'package:camera/camera.dart';
 
@@ -41,7 +42,6 @@ class TakePictureViewModel extends ViewModel {
     if (!isCameraReady) {
       await controller?.initialize().then((value) => {isCameraReady = true});
       notifyListeners();
-      log('Camera $cameraSelected is ready');
     }
   }
 
@@ -113,10 +113,24 @@ class TakePictureViewModel extends ViewModel {
 
   void takePicture() async {
     if (isCameraReady) {
-      takingPicture().then((value) {
-        imagePath = value!;
-        controller?.dispose();
-        isCameraReady = false;
+      takingPicture().then((imageFile) {
+        FaceDetectorUtils(imageFile: imageFile!).processDetectFace(
+          FaceResult(
+            onFaceDetected: (face) {
+              imagePath = imageFile;
+              controller?.dispose();
+              isCameraReady = false;
+              log('Result Face : Detected ${face.boundingBox}');
+            },
+            onFaceNotDetected: () {
+              log('Result Face : Not Detected');
+            },
+          ),
+        );
+
+        // imagePath = imgaeFile;
+        // controller?.dispose();
+        // isCameraReady = false;
         // controller = null;
         // notifyListeners();
       });

@@ -32,7 +32,7 @@ class CameraView extends StatelessWidget {
                   ),
                 ),
               ),
-              Image.asset('assets/images/frame_camera_verification4.png')
+              // Image.asset('assets/images/frame_camera_verification4.png')
             ],
           ),
         ),
