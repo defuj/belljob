@@ -5,3 +5,4 @@ export 'package:flutter/material.dart';
 export 'package:pmvvm/mvvm_builder.widget.dart';
 export 'package:pmvvm/views/stateless.view.dart';
 export 'package:pmvvm/pmvvm.dart';
+export 'package:fluttertoast/fluttertoast.dart';

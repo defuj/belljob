@@ -1,7 +1,6 @@
 import 'package:belljob/app/verifications/utils/face_detector.utils.dart';
 import 'package:belljob/packages.dart';
 import 'package:camera/camera.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 
 class TakePictureViewModel extends ViewModel {
@@ -123,7 +122,8 @@ class TakePictureViewModel extends ViewModel {
         textColor: Colors.white,
         fontSize: 16.0,
       );
-    } else {}
+      return;
+    }
 
     // If landmark detection was enabled with FaceDetectorOptions (mouth, ears,
     // eyes, cheeks, and nose available):
@@ -167,6 +167,7 @@ class TakePictureViewModel extends ViewModel {
         textColor: Colors.white,
         fontSize: 16.0,
       );
+      return;
     }
 
     final FaceLandmark? nose = face.landmarks[FaceLandmarkType.noseBase];
