@@ -4,7 +4,8 @@ class SplashViewModel extends ViewModel {
   @override
   void init() {
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, '/main');
+      //   Navigator.pushReplacementNamed(context, '/main');
+      Get.offNamed('/main');
     });
   }
 

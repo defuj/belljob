@@ -1,8 +1,4 @@
-import 'package:belljob/app/verifications/index.dart';
-import 'package:belljob/app/verifications/widget/camera_face.widget.dart';
-import 'package:belljob/app/verifications/widget/result_image_face.widget.dart';
 import 'package:belljob/packages.dart';
-import 'package:camera/camera.dart';
 
 class TakePictureFace extends StatefulWidget {
   final List<CameraDescription> cameras;

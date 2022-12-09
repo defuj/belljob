@@ -1,4 +1,3 @@
-import 'package:belljob/app/splash/splash.viewmodel.dart';
 import 'package:belljob/packages.dart';
 
 class Splash extends StatelessWidget {

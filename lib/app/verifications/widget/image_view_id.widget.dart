@@ -1,23 +1,27 @@
 import 'dart:io';
 import 'package:belljob/packages.dart';
-import 'package:camera/camera.dart';
-import 'dart:math' as math;
 
-class ResultImageFace extends StatelessWidget {
+class ResultImageID extends StatelessWidget {
   final XFile? imagePath;
-  const ResultImageFace({super.key, required this.imagePath});
+  const ResultImageID({super.key, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
-    return Transform(
-      alignment: Alignment.center,
-      transform: Matrix4.rotationY(math.pi),
-      child: ClipOval(
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: const Color(0xffF2F2F2),
+          width: 2,
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
         child: Transform.scale(
           scale: 1.0,
           child: Center(
             child: AspectRatio(
-              aspectRatio: 1 / 1,
+              aspectRatio: 3.0 / 2.0,
               child: OverflowBox(
                 alignment: Alignment.center,
                 child: FittedBox(

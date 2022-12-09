@@ -1,7 +1,22 @@
 import 'packages.dart';
 
 void main() {
-  runApp(const Root());
+//   runApp(const Root());
+  runApp(GetMaterialApp(
+    title: 'Bell Job',
+    theme: ThemeData(
+      useMaterial3: true,
+      colorScheme: lightColorScheme,
+      textTheme: textTheme,
+    ),
+    darkTheme: ThemeData(
+      useMaterial3: true,
+      colorScheme: darkColorScheme,
+      textTheme: textTheme,
+    ),
+    initialRoute: '/',
+    getPages: getRoutes,
+  ));
 }
 
 class Root extends StatelessWidget {

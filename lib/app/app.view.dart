@@ -1,4 +1,3 @@
-import 'package:belljob/app/app.viewmodel.dart';
 import 'package:belljob/packages.dart';
 
 class App extends StatelessWidget {

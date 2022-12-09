@@ -1,23 +1,17 @@
 import 'dart:developer';
-
-import 'package:belljob/app/shared/widget/dialog.widget.dart';
-import 'package:belljob/app/verifications/pages/take_picture_face.view.dart';
-import 'package:belljob/app/verifications/pages/take_picture_id.view.dart';
 import 'package:belljob/packages.dart';
-import 'package:camera/camera.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class AppViewModel extends ViewModel {
   int counter = 0;
 
   void takePictureFace() async {
-    await availableCameras().then((value) => Navigator.push(context,
-        MaterialPageRoute(builder: (_) => TakePictureFace(cameras: value))));
+    await availableCameras()
+        .then((value) => Get.to(TakePictureFace(cameras: value)));
   }
 
   void takePictureId() async {
-    await availableCameras().then((value) => Navigator.push(context,
-        MaterialPageRoute(builder: (_) => TakePictureId(cameras: value))));
+    await availableCameras()
+        .then((value) => Get.to(TakePictureId(cameras: value)));
   }
 
   void incrementCounter() {
@@ -34,7 +28,7 @@ class AppViewModel extends ViewModel {
               'Kembali ke SplashScreen akan menghapus semua data yang belum disimpan',
           cancelText: 'Batal',
           confirmText: 'Lanjutkan',
-          onConfirm: () => Navigator.pushReplacementNamed(context, '/'),
+          onConfirm: () => Get.offAllNamed('/'),
         ),
       );
     }

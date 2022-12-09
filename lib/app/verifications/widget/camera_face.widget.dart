@@ -1,6 +1,4 @@
-import 'package:belljob/app/verifications/index.dart';
 import 'package:belljob/packages.dart';
-import 'package:camera/camera.dart';
 
 class CameraView extends StatelessWidget {
   final TakePictureViewModel? viewModel;

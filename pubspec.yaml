@@ -35,7 +35,6 @@ dependencies:
     pmvvm: ^4.0.1
     # Camera Plugin
     camera: ^0.10.0+4
-    # flutter_better_camera: ^1.0.3
 
     # Biomertic Auth
     # local_auth: ^2.1.2
@@ -47,6 +46,8 @@ dependencies:
     path_provider: ^2.0.11
     # Google ML Kit
     google_ml_kit: ^0.13.0
+    # State Management, Route Management, Dependency Management
+    get: ^4.6.5
 
 dev_dependencies:
     flutter_test:

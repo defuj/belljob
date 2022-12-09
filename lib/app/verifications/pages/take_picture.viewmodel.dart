@@ -1,6 +1,4 @@
-import 'package:belljob/app/verifications/utils/face_detector.utils.dart';
 import 'package:belljob/packages.dart';
-import 'package:camera/camera.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 
 class TakePictureViewModel extends ViewModel {
