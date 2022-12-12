@@ -28,7 +28,7 @@ class AppViewModel extends ViewModel {
               'Kembali ke SplashScreen akan menghapus semua data yang belum disimpan',
           cancelText: 'Batal',
           confirmText: 'Lanjutkan',
-          onConfirm: () => Get.offAllNamed('/'),
+          onConfirm: () => Get.offAllNamed('/splash'),
         ),
       );
     }

@@ -14,7 +14,7 @@ void main() {
       colorScheme: darkColorScheme,
       textTheme: textTheme,
     ),
-    initialRoute: '/',
+    initialRoute: '/splash',
     getPages: getRoutes,
   ));
 }

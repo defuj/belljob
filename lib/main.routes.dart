@@ -1,5 +1,3 @@
-import 'package:belljob/app/app.view.dart';
-import 'package:belljob/app/splash/index.dart';
 import 'package:belljob/packages.dart';
 
 var routes = <String, WidgetBuilder>{
@@ -9,8 +7,38 @@ var routes = <String, WidgetBuilder>{
 
 var getRoutes = [
   GetPage(
-    name: '/',
+    name: '/splash',
     page: () => const Splash(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/boarding',
+    page: () => const Boarding(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/login',
+    page: () => const Login(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/register',
+    page: () => const Register(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/otp',
+    page: () => const Otp(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/forgot_password',
+    page: () => const ForgotPassword(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/reset_password',
+    page: () => const ResetPassword(),
     transition: Transition.cupertino,
   ),
   GetPage(
