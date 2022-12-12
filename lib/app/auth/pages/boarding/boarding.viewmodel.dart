@@ -1,6 +1,10 @@
 import 'package:belljob/packages.dart';
 
 class BoardingViewModel extends ViewModel {
+  void onGoToHome() {
+    Get.offNamed('/main');
+  }
+
   /// A callback after the MVVM widget's initState is called.
   /// See also:
   /// * [onDependenciesChange], which is called when the MVVM widget's [didChangeDependencies]

@@ -17,6 +17,25 @@ class _BoardingView extends StatelessView<BoardingViewModel> {
 
   @override
   Widget render(context, viewModel) {
-    return const Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Boarding Screen',
+              style: Theme.of(context).textTheme.headline3,
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 20),
+              child: ElevatedButton(
+                onPressed: () => viewModel.onGoToHome(),
+                child: const Text('Go to Home'),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

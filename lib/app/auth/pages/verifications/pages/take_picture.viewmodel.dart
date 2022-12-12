@@ -42,9 +42,25 @@ class TakePictureViewModel extends ViewModel {
     }
   }
 
+  void tryInitializeCamera() {
+    try {
+      initializeCamera(cameraSelected == 'front' ? cameras[1] : cameras[0]);
+    } catch (e) {
+      Fluttertoast.showToast(
+        msg: "Tidak ada kamera yang terdeteksi",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+    }
+  }
+
   @override
   void init() {
-    initializeCamera(cameraSelected == 'front' ? cameras[1] : cameras[0]);
+    tryInitializeCamera();
   }
 
   @override
@@ -67,7 +83,7 @@ class TakePictureViewModel extends ViewModel {
   @override
   void onResume() {
     if (!isCameraReady) {
-      initializeCamera(cameraSelected == 'front' ? cameras[1] : cameras[0]);
+      tryInitializeCamera();
     }
   }
 
@@ -210,7 +226,7 @@ class TakePictureViewModel extends ViewModel {
         );
       });
     } else {
-      initializeCamera(cameraSelected == 'front' ? cameras[1] : cameras[0]);
+      tryInitializeCamera();
     }
   }
 }
