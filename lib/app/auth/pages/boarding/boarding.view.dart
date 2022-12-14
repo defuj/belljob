@@ -30,7 +30,7 @@ class _BoardingView extends StatelessView<BoardingViewModel> {
           topRight: Radius.circular(16.0),
         ),
         controller: viewModel.panelController,
-        panel: viewModel.loginType == LoginType.worker
+        panel: viewModel.loginType == AccountType.worker.toString()
             ? const LoginWorker()
             : const LoginEmployer(),
         body: Center(
@@ -44,14 +44,16 @@ class _BoardingView extends StatelessView<BoardingViewModel> {
               Container(
                 margin: const EdgeInsets.only(top: 20),
                 child: ElevatedButton(
-                  onPressed: () => viewModel.loginType = LoginType.worker,
+                  onPressed: () =>
+                      viewModel.loginType = AccountType.worker.toString(),
                   child: const Text('Cari Pekerja'),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.only(top: 20),
                 child: ElevatedButton(
-                  onPressed: () => viewModel.loginType = LoginType.employer,
+                  onPressed: () =>
+                      viewModel.loginType = AccountType.employer.toString(),
                   child: const Text('Jadi Pekerja'),
                 ),
               )

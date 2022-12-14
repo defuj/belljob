@@ -17,8 +17,13 @@ var getRoutes = [
     transition: Transition.cupertino,
   ),
   GetPage(
-    name: '/register',
-    page: () => const Register(),
+    name: '/register_employer',
+    page: () => const RegisterEmployer(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/register_worker',
+    page: () => const RegisterWorker(),
     transition: Transition.cupertino,
   ),
   GetPage(

@@ -1,7 +1,7 @@
 import 'package:belljob/packages.dart';
 
-class Register extends StatelessWidget {
-  const Register({super.key});
+class RegisterWorker extends StatelessWidget {
+  const RegisterWorker({super.key});
 
   @override
   Widget build(BuildContext context) {

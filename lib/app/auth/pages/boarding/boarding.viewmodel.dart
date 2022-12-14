@@ -44,8 +44,3 @@ class BoardingViewModel extends ViewModel {
   @override
   void onDetach() {}
 }
-
-class LoginType {
-  static var worker = 'worker';
-  static var employer = 'employer';
-}
