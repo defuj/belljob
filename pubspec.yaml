@@ -9,7 +9,7 @@ dependencies:
     flutter:
         sdk: flutter
     cupertino_icons: ^1.0.2
-    flutter_svg: ^1.0.3
+    flutter_svg: ^1.1.6
     page_transition: ^2.0.5
     firebase_core: ^1.16.0
     fluttertoast: ^8.1.1
@@ -64,6 +64,7 @@ flutter:
     assets:
         - assets/images/
         - assets/icons/
+        - assets/icons/svg/
         - assets/animations/
 
     fonts:

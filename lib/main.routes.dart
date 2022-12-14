@@ -17,11 +17,6 @@ var getRoutes = [
     transition: Transition.cupertino,
   ),
   GetPage(
-    name: '/login',
-    page: () => const Login(),
-    transition: Transition.cupertino,
-  ),
-  GetPage(
     name: '/register',
     page: () => const Register(),
     transition: Transition.cupertino,
