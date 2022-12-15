@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:belljob/packages.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class RegisterWorker extends StatelessWidget {
   const RegisterWorker({super.key});
@@ -17,6 +20,188 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
 
   @override
   Widget render(context, viewModel) {
-    return const Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 16,
+            right: 16,
+            bottom: 16,
+            top: 56,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Pendaftaran akun',
+                style: Theme.of(context).textTheme.headline2!.copyWith(
+                    color: IColors.neutral20, fontWeight: FontWeight.w600),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(
+                  'Lengkapi form untuk melanjutkan pendaftaran',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText2!
+                      .copyWith(color: IColors.neutral20),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 4),
+                child: Text(
+                  'Foto Profile',
+                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                        color: IColors.neutral10,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 0.15,
+                      ),
+                ),
+              ),
+              Center(
+                child: DottedBorder(
+                  borderType: BorderType.Circle,
+                  radius: const Radius.circular(80),
+                  color: IColors.neutral60,
+                  child: ClipOval(
+                    child: Container(
+                      clipBehavior: Clip.hardEdge,
+                      width: 160,
+                      height: 160,
+                      decoration: const BoxDecoration(color: IColors.neutral95),
+                      child: Center(
+                        child: Stack(
+                          children: [
+                            viewModel.profilePicturePath == null
+                                ? Container()
+                                : Image.file(
+                                    File(viewModel.profilePicturePath!),
+                                    width: 160,
+                                    height: 160,
+                                    fit: BoxFit.fill,
+                                  ),
+                            SizedBox(
+                              width: 160,
+                              height: 160,
+                              child: TextButton(
+                                onPressed: viewModel.takePictureFace,
+                                child: Text(
+                                  'Ketuk untuk menambahkan foto',
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .caption!
+                                      .copyWith(color: IColors.neutral10),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 24, bottom: 4),
+                child: Text(
+                  'Nama Lengkap',
+                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                        color: IColors.neutral10,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 0.15,
+                      ),
+                ),
+              ),
+              InputText(
+                hintText: 'Masukkan nama lengkap',
+                onChanged: (value) => viewModel.name = value,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 24, bottom: 4),
+                child: Text(
+                  'Nomor Handphone',
+                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                        color: IColors.neutral10,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 0.15,
+                      ),
+                ),
+              ),
+              InputPhoneNumber(
+                hintText: 'Masukkan nomor handphone',
+                onChanged: (value) => viewModel.phone = '+62$value',
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 24, bottom: 4),
+                child: Text(
+                  'Kata Sandi',
+                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                        color: IColors.neutral10,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 0.15,
+                      ),
+                ),
+              ),
+              InputPassword(
+                hintText: 'Masukkan kata sandi',
+                onChanged: (value) => viewModel.password = value,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 24, bottom: 4),
+                child: Text(
+                  'Ulangi Kata Sandi',
+                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                        color: IColors.neutral10,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 0.15,
+                      ),
+                ),
+              ),
+              InputPassword(
+                hintText: 'Masukkan ulang kata sandi',
+                onChanged: (value) => viewModel.confirmPassword = value,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 24, bottom: 16),
+                child: ButtonPrimary(
+                  text: 'Daftar',
+                  onPressed: () => viewModel.validate(
+                    accountType: AccountType.employer.toString(),
+                  ),
+                ),
+              ),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Sudah punya akun? ',
+                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                            color: IColors.neutral20,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 0.15,
+                          ),
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.of(context).pop(),
+                      child: Text(
+                        'Masuk',
+                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                              color: IColors.secondary50,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: 0.15,
+                            ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

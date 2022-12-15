@@ -1,79 +1,80 @@
+import 'dart:developer';
+
 import 'package:belljob/packages.dart';
 
 class RegisterViewModel extends ViewModel {
+  final box = GetStorage();
+  String? profilePicturePath;
   String name = '';
   String phone = '';
   String password = '';
   String confirmPassword = '';
   String? accountType;
 
+  void takePictureFace() async {
+    await availableCameras()
+        .then((value) => Get.to(TakePictureFace(cameras: value)));
+  }
+
+  void takePictureId() async {
+    await availableCameras()
+        .then((value) => Get.to(TakePictureId(cameras: value)));
+  }
+
   void validate({required String accountType}) {
     this.accountType = accountType;
     if (name == '') {
-      showDialog(
+      SweetDialog(
         context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) => MyAlertDialog(
-          context: context,
-          title: 'Nama tidak boleh kosong',
-          content: 'Silahkan isi nama anda terlebih dahulu',
-          confirmText: 'Mengerti',
-        ),
-      );
+        dialogType: DialogType.error.toString(),
+        title: 'Nama tidak boleh kosong',
+        content:
+            'Silahkan isi nama lengkap anda terlebih dahulu untuk melanjutkan',
+        confirmText: 'Mengerti',
+      ).show();
     } else if (phone == '') {
-      showDialog(
+      SweetDialog(
         context: context,
-        builder: (BuildContext context) => MyAlertDialog(
-          context: context,
-          title: 'Nomor telepon tidak boleh kosong',
-          content: 'Silahkan isi nomor telepon anda terlebih dahulu',
-          confirmText: 'Mengerti',
-        ),
-      );
+        dialogType: DialogType.warning.toString(),
+        title: 'Nomor telepon tidak boleh kosong',
+        content: 'Silahkan isi nomor telepon anda terlebih dahulu',
+        confirmText: 'Mengerti',
+      ).show();
     } else if (password == '') {
-      showDialog(
+      SweetDialog(
         context: context,
-        builder: (BuildContext context) => MyAlertDialog(
-          context: context,
-          title: 'Kata sandi tidak boleh kosong',
-          content: 'Silahkan isi kata sandi anda terlebih dahulu',
-          confirmText: 'Mengerti',
-        ),
-      );
+        dialogType: DialogType.warning.toString(),
+        title: 'Kata sandi tidak boleh kosong',
+        content: 'Silahkan isi kata sandi anda terlebih dahulu',
+        confirmText: 'Mengerti',
+      ).show();
     } else if (confirmPassword == '') {
-      showDialog(
+      SweetDialog(
         context: context,
-        builder: (BuildContext context) => MyAlertDialog(
-          context: context,
-          title: 'Konfirmasi kata sandi tidak boleh kosong',
-          content: 'Silahkan isi konfirmasi kata sandi anda terlebih dahulu',
-          confirmText: 'Mengerti',
-        ),
-      );
+        dialogType: DialogType.warning.toString(),
+        title: 'Konfirmasi kata sandi tidak boleh kosong',
+        content: 'Silahkan isi konfirmasi kata sandi anda terlebih dahulu',
+        confirmText: 'Mengerti',
+      ).show();
     } else if (password != confirmPassword) {
-      showDialog(
+      SweetDialog(
         context: context,
-        builder: (BuildContext context) => MyAlertDialog(
-          context: context,
-          title: 'Konfirmasi kata sandi tidak sesuai',
-          content: 'Silahkan isi konfirmasi kata sandi anda dengan benar',
-          confirmText: 'Mengerti',
-        ),
-      );
+        dialogType: DialogType.warning.toString(),
+        title: 'Konfirmasi kata sandi tidak sesuai',
+        content: 'Silahkan isi konfirmasi kata sandi anda dengan benar',
+        confirmText: 'Mengerti',
+      ).show();
     } else {
       PasswordCheck(password: password).process(
         PasswordResult(
           onPasswordValid: () {},
           onPasswordInvalid: (message) {
-            showDialog(
+            SweetDialog(
               context: context,
-              builder: (BuildContext context) => MyAlertDialog(
-                context: context,
-                title: 'Kata sandi tidak valid',
-                content: message,
-                confirmText: 'Mengerti',
-              ),
-            );
+              title: 'Kata sandi tidak valid',
+              content: message,
+              confirmText: 'Mengerti',
+            ).show();
           },
         ),
       );
@@ -84,7 +85,14 @@ class RegisterViewModel extends ViewModel {
   void init() {}
 
   @override
-  void onDependenciesChange() {}
+  void onDependenciesChange() {
+    try {
+      profilePicturePath = box.read('profilePicturePath');
+      log('profilePicturePath: $profilePicturePath');
+      notifyListeners();
+      // ignore: empty_catches
+    } catch (e) {}
+  }
 
   @override
   void onBuild() {}

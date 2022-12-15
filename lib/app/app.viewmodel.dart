@@ -18,19 +18,16 @@ class AppViewModel extends ViewModel {
     counter++;
     notifyListeners();
     if (counter == 6) {
-      showDialog(
+      SweetDialog(
+        dialogType: DialogType.warning.toString(),
         context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) => MyAlertDialog(
-          context: context,
-          title: 'Kembali ke SplashScreen?',
-          content:
-              'Kembali ke SplashScreen akan menghapus semua data yang belum disimpan',
-          cancelText: 'Batal',
-          confirmText: 'Lanjutkan',
-          onConfirm: () => Get.offAllNamed('/splash'),
-        ),
-      );
+        title: 'Kembali ke SplashScreen?',
+        content:
+            'Kembali ke SplashScreen akan menghapus semua data yang belum disimpan',
+        cancelText: 'Batal',
+        confirmText: 'Lanjutkan',
+        onConfirm: () => Get.offAllNamed('/splash'),
+      ).show();
     }
 
     if (counter == 3) {

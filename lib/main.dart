@@ -1,7 +1,8 @@
 import 'packages.dart';
 
-void main() {
-//   runApp(const Root());
+Future<void> main() async {
+  // runApp(const Root());
+  await GetStorage.init();
   runApp(GetMaterialApp(
     title: 'Bell Job',
     theme: ThemeData(

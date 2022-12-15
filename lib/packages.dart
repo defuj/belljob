@@ -1,3 +1,4 @@
+export 'package:lottie/lottie.dart';
 export 'package:belljob/main.routes.dart';
 export 'package:belljob/main.texttheme.dart';
 export 'package:belljob/color_schemes.g.dart';
@@ -10,3 +11,4 @@ export 'package:get/get.dart';
 export 'package:belljob/app/index.dart';
 export 'package:camera/camera.dart';
 export 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+export 'package:get_storage/get_storage.dart';

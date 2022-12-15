@@ -4,6 +4,7 @@ import 'package:google_ml_kit/google_ml_kit.dart';
 class TakePictureViewModel extends ViewModel {
   String cameraSelected = 'back';
   bool isCameraReady = false;
+  final box = GetStorage();
 
   TakePictureViewModel(List<CameraDescription>? cameras,
       {this.cameraSelected = 'front'}) {
@@ -124,7 +125,7 @@ class TakePictureViewModel extends ViewModel {
     }
   }
 
-  void verifyFace(Face face) {
+  Future<void> verifyFace(Face face) async {
     if (face.leftEyeOpenProbability! < 0.5 ||
         face.rightEyeOpenProbability! < 0.5) {
       Fluttertoast.showToast(
@@ -200,6 +201,9 @@ class TakePictureViewModel extends ViewModel {
 
     controller?.dispose();
     isCameraReady = false;
+
+    await box.write("profilePicturePath", imagePath!.path);
+    Get.back();
   }
 
   void takePicture() async {

@@ -1,4 +1,3 @@
-import 'package:belljob/app/auth/widgets/input_text.widget.dart';
 import 'package:belljob/packages.dart';
 
 class RegisterEmployer extends StatelessWidget {

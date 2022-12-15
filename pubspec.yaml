@@ -23,7 +23,7 @@ dependencies:
     # Google Fonts
     google_fonts: ^3.0.1
     # For Animations
-    lottie: ^1.4.1
+    lottie: ^2.1.0
     # For Image Slider/Coraousel
     carousel_slider: ^4.1.1
     # For Date Time Picker
@@ -35,6 +35,8 @@ dependencies:
     pmvvm: ^4.0.1
     # Camera Plugin
     camera: ^0.10.0+4
+    # border dashed or dotted
+    dotted_border: ^2.0.0+3
 
     # Biomertic Auth
     # local_auth: ^2.1.2
@@ -48,6 +50,7 @@ dependencies:
     google_ml_kit: ^0.13.0
     # State Management, Route Management, Dependency Management
     get: ^4.6.5
+    get_storage: ^2.0.3
     # Sliding Up Panel
     sliding_up_panel: ^2.0.0+1
 

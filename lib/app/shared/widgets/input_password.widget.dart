@@ -7,7 +7,7 @@ class InputPassword extends StatefulWidget {
   const InputPassword({
     super.key,
     this.onChanged,
-    this.hintText = 'Masukkan password',
+    this.hintText = 'Masukkan kata sandi',
     this.initialValue = '',
   });
 

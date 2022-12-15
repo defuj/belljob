@@ -7,48 +7,69 @@ class LoginViewModel extends ViewModel {
 
   void login({required String loginType}) {
     this.loginType = loginType;
-    if (phone == null || phone!.isEmpty) {
-      Fluttertoast.showToast(
-        msg: "Nomor telepon tidak boleh kosong",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 14.0,
+
+    void checkAccount() {
+      var loading = SweetDialog(
+        context: context,
+        dialogType: DialogType.loading.toString(),
+        barrierDismissible: false,
       );
-      return;
+      loading.show();
+
+      // timeout for testing
+      Future.delayed(const Duration(seconds: 3), () {
+        loading.dismiss();
+        SweetDialog(
+          context: context,
+          dialogType: DialogType.success.toString(),
+          title: 'Login berhasil',
+          content: 'Selamat datang di Belljob',
+          confirmText: 'Lanjutkan',
+        ).show();
+      });
     }
 
-    if (password == null || password!.isEmpty) {
-      Fluttertoast.showToast(
-        msg: "Password tidak boleh kosong",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 14.0,
+    void validate() {
+      if (phone == null || phone!.isEmpty) {
+        SweetDialog(
+          context: context,
+          dialogType: DialogType.warning.toString(),
+          title: 'Nomor handphone tidak boleh kosong',
+          content:
+              'Silahkan isi nomor handphone anda terlebih dahulu untuk melanjutkan',
+          confirmText: 'Mengerti',
+        ).show();
+        return;
+      }
+
+      if (password == null || password!.isEmpty) {
+        SweetDialog(
+          context: context,
+          dialogType: DialogType.warning.toString(),
+          title: 'Kata sandi tidak boleh kosong',
+          content: 'Silahkan isi kata sandi anda terlebih dahulu',
+          confirmText: 'Mengerti',
+        ).show();
+        return;
+      }
+
+      PasswordCheck(password: password).process(
+        PasswordResult(
+          onPasswordValid: checkAccount,
+          onPasswordInvalid: (String message) {
+            SweetDialog(
+              context: context,
+              dialogType: DialogType.error.toString(),
+              title: 'Password tidak valid',
+              content: message,
+              confirmText: 'Mengerti',
+            ).show();
+          },
+        ),
       );
-      return;
     }
 
-    PasswordCheck(password: password).process(
-      PasswordResult(
-        onPasswordValid: () {},
-        onPasswordInvalid: (String message) {
-          Fluttertoast.showToast(
-            msg: message,
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.CENTER,
-            timeInSecForIosWeb: 1,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-            fontSize: 14.0,
-          );
-        },
-      ),
-    );
+    validate();
   }
 
   @override
