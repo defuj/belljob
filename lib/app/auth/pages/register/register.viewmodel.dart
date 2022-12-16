@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:belljob/packages.dart';
 
 class RegisterViewModel extends ViewModel {
@@ -10,6 +8,21 @@ class RegisterViewModel extends ViewModel {
   String password = '';
   String confirmPassword = '';
   String? accountType;
+  String? address = '';
+
+  List<String> genderList = [
+    'Laki-Laki',
+    'Perempuan',
+  ];
+
+  int genderNum = 1;
+  String gender = 'Laki-Laki';
+
+  void updateGender(int number) {
+    genderNum = number;
+    gender = genderList[number];
+    notifyListeners();
+  }
 
   void takePictureFace() async {
     await availableCameras()
@@ -81,18 +94,25 @@ class RegisterViewModel extends ViewModel {
     }
   }
 
-  @override
-  void init() {}
+  void resetPicture() {
+    box.remove('profilePicturePath');
+    notifyListeners();
+
+    takePictureFace();
+  }
 
   @override
-  void onDependenciesChange() {
-    try {
-      profilePicturePath = box.read('profilePicturePath');
-      log('profilePicturePath: $profilePicturePath');
-      notifyListeners();
-      // ignore: empty_catches
-    } catch (e) {}
+  void init() {
+    box.listenKey('profilePicturePath', (value) {
+      if (value != null) {
+        profilePicturePath = value;
+        notifyListeners();
+      }
+    });
   }
+
+  @override
+  void onDependenciesChange() {}
 
   @override
   void onBuild() {}

@@ -4,11 +4,19 @@ class InputText extends StatefulWidget {
   final ValueChanged<String>? onChanged;
   final String? initialValue;
   final String? hintText;
+  final int? maxLength;
+  final TextInputType? keyboardType;
+  final int? minLines;
+  final int? maxLines;
   const InputText({
     super.key,
     this.onChanged,
     this.hintText = '',
     this.initialValue = '',
+    this.maxLength = 50,
+    this.keyboardType = TextInputType.text,
+    this.minLines = 1,
+    this.maxLines = 1,
   });
 
   @override
@@ -25,10 +33,12 @@ class _InputTextState extends State<InputText> {
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
       ),
       child: TextFormField(
+        maxLines: widget.maxLines,
+        minLines: widget.minLines,
         initialValue: widget.initialValue,
         onChanged: widget.onChanged,
-        keyboardType: TextInputType.visiblePassword,
-        maxLength: 50,
+        keyboardType: widget.keyboardType,
+        maxLength: widget.maxLength,
         style: Theme.of(context)
             .textTheme
             .bodyText1!
