@@ -28,7 +28,9 @@ var getRoutes = [
   ),
   GetPage(
     name: '/otp',
-    page: () => const Otp(),
+    page: () => Otp(
+      phoneNumber: Get.arguments,
+    ),
     transition: Transition.cupertino,
   ),
   GetPage(

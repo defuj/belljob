@@ -1,13 +1,14 @@
 import 'package:belljob/packages.dart';
 
 class Otp extends StatelessWidget {
-  const Otp({super.key});
+  final String? phoneNumber;
+  const Otp({super.key, required this.phoneNumber});
 
   @override
   Widget build(BuildContext context) {
     return MVVM<OtpViewModel>(
       view: () => const _OtpView(),
-      viewModel: OtpViewModel(),
+      viewModel: OtpViewModel(phoneNumber: phoneNumber),
     );
   }
 }
@@ -17,6 +18,121 @@ class _OtpView extends StatelessView<OtpViewModel> {
 
   @override
   Widget render(context, viewModel) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Container(),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              'Masukan Kode Verifikasi',
+              style: Theme.of(context).textTheme.headline2!.copyWith(
+                  color: IColors.neutral10, fontWeight: FontWeight.w600),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text(
+                'Masukan kode verifikasi yang telah dikirimkan melalui SMS ke ${viewModel.phoneNumber}',
+                style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                    color: IColors.neutral20, fontWeight: FontWeight.w500),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 24),
+            ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Belum menerima kode verifikasi? ',
+                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                          color: IColors.neutral20,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.15,
+                        ),
+                  ),
+                  if (!viewModel.resend)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Tunggu',
+                          style:
+                              Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: IColors.neutral20,
+                                    fontWeight: FontWeight.w400,
+                                    letterSpacing: 0.15,
+                                  ),
+                        ),
+                        Text(
+                          ' 00:${viewModel.timer} ',
+                          style:
+                              Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: IColors.secondary50,
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: 0.15,
+                                  ),
+                        ),
+                      ],
+                    ),
+                  if (viewModel.resend)
+                    InkWell(
+                      onTap: viewModel.startTimer,
+                      child: Text(
+                        'Kirim ulang',
+                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                              color: IColors.secondary50,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: 0.15,
+                            ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(top: 24, bottom: 24),
+              child: ButtonPrimary(
+                text: 'Konfirmasi',
+                onPressed: () {},
+              ),
+            ),
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Ubah nomor handphone? ',
+                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                          color: IColors.neutral20,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.15,
+                        ),
+                  ),
+                  InkWell(
+                    onTap: () => Navigator.of(context).pop(),
+                    child: Text(
+                      'Ubah',
+                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                            color: IColors.secondary50,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 0.15,
+                          ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

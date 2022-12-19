@@ -84,7 +84,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () => {},
+                onPressed: viewModel.forgotPassword,
                 child: Text(
                   'Lupa kata sandi?',
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(

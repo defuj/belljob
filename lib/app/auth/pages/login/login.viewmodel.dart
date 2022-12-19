@@ -42,6 +42,18 @@ class LoginViewModel extends ViewModel {
         return;
       }
 
+      if (!validatePhoneNumber(phone: phone!)) {
+        SweetDialog(
+          context: context,
+          dialogType: DialogType.warning.toString(),
+          title: 'Nomor handphone tidak valid',
+          content:
+              'Silahkan isi nomor handphone anda dengan benar untuk melanjutkan',
+          confirmText: 'Mengerti',
+        ).show();
+        return;
+      }
+
       if (password == null || password!.isEmpty) {
         SweetDialog(
           context: context,
@@ -70,6 +82,15 @@ class LoginViewModel extends ViewModel {
     }
 
     validate();
+  }
+
+  void forgotPassword() {
+    Get.to(FindAccount(
+      nextPage: '/reset_password',
+      title: 'Lupa Kata Sandi',
+      accountType: loginType,
+      action: OtpAction.forgotPassword.toString(),
+    ));
   }
 
   @override

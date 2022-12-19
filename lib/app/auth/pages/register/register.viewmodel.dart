@@ -114,6 +114,17 @@ class RegisterViewModel extends ViewModel {
         confirmText: 'Mengerti',
       ).show();
       return;
+    } else {
+      if (!validatePhoneNumber(phone: phone)) {
+        SweetDialog(
+          context: context,
+          dialogType: DialogType.warning.toString(),
+          title: 'Nomor telepon tidak valid',
+          content: 'Silahkan isi nomor telepon anda dengan benar',
+          confirmText: 'Mengerti',
+        ).show();
+        return;
+      }
     }
 
     if (password == '') {
