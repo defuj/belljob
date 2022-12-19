@@ -27,13 +27,6 @@ var getRoutes = [
     transition: Transition.cupertino,
   ),
   GetPage(
-    name: '/otp',
-    page: () => Otp(
-      phoneNumber: Get.arguments,
-    ),
-    transition: Transition.cupertino,
-  ),
-  GetPage(
     name: '/forgot_password',
     page: () => const ForgotPassword(),
     transition: Transition.cupertino,

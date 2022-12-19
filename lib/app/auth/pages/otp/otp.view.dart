@@ -3,13 +3,14 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class Otp extends StatelessWidget {
   final String? phoneNumber;
-  const Otp({super.key, required this.phoneNumber});
+  final String? nextPage;
+  const Otp({super.key, required this.phoneNumber, required this.nextPage});
 
   @override
   Widget build(BuildContext context) {
     return MVVM<OtpViewModel>(
       view: () => const _OtpView(),
-      viewModel: OtpViewModel(phoneNumber: phoneNumber),
+      viewModel: OtpViewModel(phoneNumber: phoneNumber, nextPage: nextPage),
     );
   }
 }
@@ -56,18 +57,12 @@ class _OtpView extends StatelessView<OtpViewModel> {
                   showFieldAsBox: true,
                   //runs when a code is typed in
                   onCodeChanged: (String code) {
-                    //handle validation or checks here
+                    // viewModel.code = code;
                   },
                   //runs when every textfield is filled
                   onSubmit: (String verificationCode) {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: const Text("Verification Code"),
-                            content: Text('Code entered is $verificationCode'),
-                          );
-                        });
+                    viewModel.code = verificationCode;
+                    viewModel.checkCode();
                   }, // end onSubmit
                 ),
               ),
@@ -127,7 +122,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
               padding: const EdgeInsets.only(top: 24, bottom: 24),
               child: ButtonPrimary(
                 text: 'Konfirmasi',
-                onPressed: () {},
+                onPressed: viewModel.checkCode,
               ),
             ),
             Center(

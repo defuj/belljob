@@ -1,12 +1,58 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:belljob/packages.dart';
 
 class OtpViewModel extends ViewModel {
+  final String? nextPage;
+  String? code;
   bool resend = true;
   int timer = 30;
   final String? phoneNumber;
-  OtpViewModel({required this.phoneNumber});
+  OtpViewModel({required this.phoneNumber, required this.nextPage});
+
+  void checkCode() {
+    if (code == null) {
+      SweetDialog(
+        context: context,
+        dialogType: DialogType.warning.toString(),
+        title: 'Kode verifikasi tidak boleh kosong',
+        content:
+            'Silahkan isi kode verifikasi anda terlebih dahulu untuk melanjutkan',
+        confirmText: 'Mengerti',
+      ).show();
+      return;
+    }
+
+    if (code!.length != 6) {
+      log('code $code, length: ${code!.length}');
+      SweetDialog(
+        context: context,
+        dialogType: DialogType.warning.toString(),
+        title: 'Kode verifikasi tidak valid',
+        content: 'Silahkan isi kode verifikasi anda dengan benar',
+        confirmText: 'Mengerti',
+      ).show();
+      return;
+    }
+
+    var loading = SweetDialog(
+        context: context, dialogType: DialogType.loading.toString());
+    loading.show();
+
+    Future.delayed(const Duration(seconds: 3), () {
+      loading.dismiss();
+      SweetDialog(
+        context: context,
+        barrierDismissible: false,
+        dialogType: DialogType.success.toString(),
+        title: 'Berhasil',
+        content: 'Silahkan lanjutkan buat kata sandi baru',
+        confirmText: 'Lanjutkan',
+        onConfirm: () => Get.offNamed(nextPage!),
+      ).show();
+    });
+  }
 
   void startTimer() {
     if (resend) {

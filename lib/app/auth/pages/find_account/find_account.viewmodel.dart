@@ -45,7 +45,7 @@ class FindAccountViewModel extends ViewModel {
         //   onConfirm: () => Get.off(Otp(phoneNumber: phoneNumber)),
         // ).show();
         //Get.offNamed(nextPage!, arguments: phoneNumber)
-        Get.off(Otp(phoneNumber: phoneNumber));
+        Get.off(Otp(phoneNumber: phoneNumber, nextPage: nextPage));
       });
     } else {
       SweetDialog(
