@@ -4,9 +4,14 @@ class FindAccountViewModel extends ViewModel {
   final String? nextPage;
   final String? action;
   String? phoneNumber;
+  final String? title;
+  final String? accountType;
+
   FindAccountViewModel({
     required this.nextPage,
     required this.action,
+    required this.title,
+    required this.accountType,
   });
 
   void sendVerification() {

@@ -16,32 +16,19 @@ class FindAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MVVM<FindAccountViewModel>(
-      view: () => _FindAccountView(
-        nextPage: nextPage,
-        title: title,
-        accountType: accountType,
-        action: action,
-      ),
+      view: () => const _FindAccountView(),
       viewModel: FindAccountViewModel(
         nextPage: nextPage,
         action: action,
+        title: title,
+        accountType: accountType,
       ),
     );
   }
 }
 
 class _FindAccountView extends StatelessView<FindAccountViewModel> {
-  final String? nextPage;
-  final String? title;
-  final String? accountType;
-  final String? action;
-  const _FindAccountView({
-    key,
-    required this.nextPage,
-    required this.title,
-    required this.accountType,
-    required this.action,
-  }) : super(key: key, reactive: true);
+  const _FindAccountView({key}) : super(key: key, reactive: true);
 
   @override
   Widget render(context, viewModel) {
@@ -58,7 +45,7 @@ class _FindAccountView extends StatelessView<FindAccountViewModel> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '$title',
+              viewModel.title!,
               style: Theme.of(context).textTheme.headline2!.copyWith(
                   color: IColors.neutral20, fontWeight: FontWeight.w600),
             ),

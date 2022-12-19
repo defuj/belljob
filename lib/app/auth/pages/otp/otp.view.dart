@@ -1,4 +1,5 @@
 import 'package:belljob/packages.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class Otp extends StatelessWidget {
   final String? phoneNumber;
@@ -44,7 +45,32 @@ class _OtpView extends StatelessView<OtpViewModel> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 24),
+              padding: const EdgeInsets.symmetric(vertical: 35),
+              child: Expanded(
+                child: OtpTextField(
+                  numberOfFields: 6,
+                  borderColor: IColors.neutral20,
+                  cursorColor: IColors.neutral20,
+                  focusedBorderColor: IColors.neutral20,
+                  //set to true to show as box or false to show as dash
+                  showFieldAsBox: true,
+                  //runs when a code is typed in
+                  onCodeChanged: (String code) {
+                    //handle validation or checks here
+                  },
+                  //runs when every textfield is filled
+                  onSubmit: (String verificationCode) {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: const Text("Verification Code"),
+                            content: Text('Code entered is $verificationCode'),
+                          );
+                        });
+                  }, // end onSubmit
+                ),
+              ),
             ),
             Center(
               child: Column(
