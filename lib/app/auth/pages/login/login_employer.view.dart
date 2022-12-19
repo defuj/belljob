@@ -111,7 +111,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
                     .copyWith(color: IColors.neutral10),
               ),
               TextButton(
-                onPressed: () => Get.toNamed('/register_worker'),
+                onPressed: () => Get.toNamed('/register_employer'),
                 child: Text(
                   'Daftar',
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(

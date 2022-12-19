@@ -231,6 +231,13 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                       ),
                 ),
               ),
+              DropdownButtons(
+                dropdownValue: viewModel.job,
+                list: viewModel.jobList,
+                onChanged: (String value) {
+                  viewModel.updateJob(value);
+                },
+              ),
               Padding(
                 padding: const EdgeInsets.only(top: 24, bottom: 4),
                 child: Text(
@@ -281,7 +288,7 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                 child: ButtonPrimary(
                   text: 'Daftar',
                   onPressed: () => viewModel.validate(
-                    accountType: AccountType.employer.toString(),
+                    accountType: AccountType.worker.toString(),
                   ),
                 ),
               ),

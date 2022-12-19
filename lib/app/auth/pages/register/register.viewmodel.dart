@@ -9,6 +9,16 @@ class RegisterViewModel extends ViewModel {
   String confirmPassword = '';
   String? accountType;
   String? address = '';
+  List<String> jobList = [
+    'Pilih jenis pekerjaan',
+    'Baby Sitter',
+    'Tukang Kebun',
+    'Tukang Cuci',
+    'Tukang Masak',
+    'Tukang Jemur',
+    'Tukang Ojek',
+  ];
+  String job = 'Pilih jenis pekerjaan';
 
   List<String> genderList = [
     'Laki-Laki',
@@ -24,6 +34,11 @@ class RegisterViewModel extends ViewModel {
     notifyListeners();
   }
 
+  void updateJob(String value) {
+    job = value;
+    notifyListeners();
+  }
+
   void takePictureFace() async {
     await availableCameras()
         .then((value) => Get.to(TakePictureFace(cameras: value)));
@@ -36,6 +51,47 @@ class RegisterViewModel extends ViewModel {
 
   void validate({required String accountType}) {
     this.accountType = accountType;
+    // requirement for worker
+    if (accountType == AccountType.worker.toString()) {
+      if (profilePicturePath == null) {
+        SweetDialog(
+          context: context,
+          dialogType: DialogType.error.toString(),
+          title: 'Belum ada foto profil',
+          content:
+              'Silahkan ambil foto profil terlebih dahulu untuk melanjutkan',
+          confirmText: 'Mengerti',
+        ).show();
+
+        return;
+      }
+
+      if (address == null || address == '') {
+        SweetDialog(
+          context: context,
+          dialogType: DialogType.error.toString(),
+          title: 'Belum ada alamat',
+          content: 'Silahkan isi alamat terlebih dahulu untuk melanjutkan',
+          confirmText: 'Mengerti',
+        ).show();
+
+        return;
+      }
+
+      if (job == 'Pilih jenis pekerjaan') {
+        SweetDialog(
+          context: context,
+          dialogType: DialogType.error.toString(),
+          title: 'Belum memilih jenis pekerjaan',
+          content:
+              'Silahkan pilih jenis pekerjaan terlebih dahulu untuk melanjutkan',
+          confirmText: 'Mengerti',
+        ).show();
+
+        return;
+      }
+    }
+
     if (name == '') {
       SweetDialog(
         context: context,
@@ -45,7 +101,11 @@ class RegisterViewModel extends ViewModel {
             'Silahkan isi nama lengkap anda terlebih dahulu untuk melanjutkan',
         confirmText: 'Mengerti',
       ).show();
-    } else if (phone == '') {
+
+      return;
+    }
+
+    if (phone == '') {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
@@ -53,7 +113,10 @@ class RegisterViewModel extends ViewModel {
         content: 'Silahkan isi nomor telepon anda terlebih dahulu',
         confirmText: 'Mengerti',
       ).show();
-    } else if (password == '') {
+      return;
+    }
+
+    if (password == '') {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
@@ -61,7 +124,10 @@ class RegisterViewModel extends ViewModel {
         content: 'Silahkan isi kata sandi anda terlebih dahulu',
         confirmText: 'Mengerti',
       ).show();
-    } else if (confirmPassword == '') {
+      return;
+    }
+
+    if (confirmPassword == '') {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
@@ -69,7 +135,10 @@ class RegisterViewModel extends ViewModel {
         content: 'Silahkan isi konfirmasi kata sandi anda terlebih dahulu',
         confirmText: 'Mengerti',
       ).show();
-    } else if (password != confirmPassword) {
+      return;
+    }
+
+    if (password != confirmPassword) {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
@@ -77,21 +146,45 @@ class RegisterViewModel extends ViewModel {
         content: 'Silahkan isi konfirmasi kata sandi anda dengan benar',
         confirmText: 'Mengerti',
       ).show();
-    } else {
-      PasswordCheck(password: password).process(
-        PasswordResult(
-          onPasswordValid: () {},
-          onPasswordInvalid: (message) {
-            SweetDialog(
-              context: context,
-              title: 'Kata sandi tidak valid',
-              content: message,
-              confirmText: 'Mengerti',
-            ).show();
-          },
-        ),
-      );
+      return;
     }
+
+    PasswordCheck(password: password).process(
+      PasswordResult(
+        onPasswordValid: createAccount,
+        onPasswordInvalid: (message) {
+          SweetDialog(
+            dialogType: DialogType.error.toString(),
+            context: context,
+            title: 'Kata sandi tidak valid',
+            content: message,
+            confirmText: 'Mengerti',
+          ).show();
+        },
+      ),
+    );
+  }
+
+  void createAccount() async {
+    var loading = SweetDialog(
+      context: context,
+      dialogType: DialogType.loading.toString(),
+      barrierDismissible: false,
+    );
+    loading.show();
+
+    Future.delayed(const Duration(seconds: 3), () async {
+      loading.dismiss();
+      SweetDialog(
+        context: context,
+        dialogType: DialogType.success.toString(),
+        title: 'Akun berhasil dibuat',
+        content: 'Silahkan login untuk melanjutkan',
+        confirmText: 'Mengerti',
+        barrierDismissible: false,
+        onConfirm: () => Get.back(),
+      ).show();
+    });
   }
 
   void resetPicture() {

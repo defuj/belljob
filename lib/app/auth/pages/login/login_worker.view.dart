@@ -95,7 +95,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
             Container(
               margin: const EdgeInsets.only(top: 35, bottom: 7),
               child: ButtonPrimary(
-                text: 'Masuk sebagai Perkerja',
+                text: 'Masuk sebagai Pekerja',
                 onPressed: () =>
                     viewModel.login(loginType: AccountType.worker.toString()),
               ),
@@ -111,7 +111,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
                       .copyWith(color: IColors.neutral10),
                 ),
                 TextButton(
-                  onPressed: () => Get.toNamed('/register_employer'),
+                  onPressed: () => Get.toNamed('/register_worker'),
                   child: Text(
                     'Daftar',
                     style: Theme.of(context).textTheme.bodyText2!.copyWith(

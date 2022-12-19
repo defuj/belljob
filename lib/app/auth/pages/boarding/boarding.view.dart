@@ -45,16 +45,23 @@ class _BoardingView extends StatelessView<BoardingViewModel> {
                 margin: const EdgeInsets.only(top: 20),
                 child: ElevatedButton(
                   onPressed: () =>
-                      viewModel.loginType = AccountType.worker.toString(),
-                  child: const Text('Cari Pekerja'),
+                      viewModel.loginType = AccountType.employer.toString(),
+                  child: const Text('Butuh pekerja? Cari disini'),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Text(
+                  'atau',
+                  style: Theme.of(context).textTheme.bodyText2,
                 ),
               ),
               Container(
                 margin: const EdgeInsets.only(top: 20),
                 child: ElevatedButton(
                   onPressed: () =>
-                      viewModel.loginType = AccountType.employer.toString(),
-                  child: const Text('Jadi Pekerja'),
+                      viewModel.loginType = AccountType.worker.toString(),
+                  child: const Text('Temukan pekerjaan disini'),
                 ),
               )
             ],
