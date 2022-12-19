@@ -17,6 +17,73 @@ class _ResetPasswordView extends StatelessView<ResetPasswordViewModel> {
 
   @override
   Widget render(context, viewModel) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Container(),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Kata Sandi Baru',
+              style: Theme.of(context).textTheme.headline2!.copyWith(
+                  color: IColors.neutral20, fontWeight: FontWeight.w600),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text(
+                'Pastikan akun kamu tetap aman',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText2!
+                    .copyWith(color: IColors.neutral20),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 48, bottom: 4),
+              child: Text(
+                'Kata Sandi Baru',
+                style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                      color: IColors.neutral10,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.15,
+                    ),
+              ),
+            ),
+            InputPassword(
+              hintText: 'Masukkan kata sandi baru',
+              onChanged: (value) => viewModel.password = value,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 24, bottom: 4),
+              child: Text(
+                'Ulangi Kata Sandi',
+                style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                      color: IColors.neutral10,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.15,
+                    ),
+              ),
+            ),
+            InputPassword(
+              hintText: 'Masukkan ulang kata sandi',
+              onChanged: (value) => viewModel.confirmPassword = value,
+            ),
+            Container(
+              padding: const EdgeInsets.only(top: 24, bottom: 24),
+              child: ButtonPrimary(
+                text: 'Simpan',
+                onPressed: viewModel.resetPassword,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

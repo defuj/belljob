@@ -1,48 +1,110 @@
 import 'package:belljob/packages.dart';
 
 class ResetPasswordViewModel extends ViewModel {
-  /// A callback after the MVVM widget's initState is called.
-  /// See also:
-  /// * [onDependenciesChange], which is called when the MVVM widget's [didChangeDependencies]
-  /// is called.
+  String? password;
+  String? confirmPassword;
+
+  void resetPassword() {
+    void startResetPassword() {
+      var loading = SweetDialog(
+          context: context, dialogType: DialogType.loading.toString());
+      loading.show();
+
+      Future.delayed(const Duration(seconds: 2), () {
+        loading.dismiss();
+        SweetDialog(
+          context: context,
+          barrierDismissible: false,
+          dialogType: DialogType.success.toString(),
+          title: 'Kata sandi berhasil diubah',
+          content: 'Silahkan masuk kembali',
+          onConfirm: () {
+            Navigator.of(context).pop();
+            Navigator.of(context).pop();
+          },
+        ).show();
+        return;
+      });
+    }
+
+    void checkPassword() {
+      if (password == null) {
+        SweetDialog(
+          context: context,
+          dialogType: DialogType.error.toString(),
+          title: 'Kata sandi belum diisi',
+          content: 'Silahkan masukkan kata sandi baru',
+          confirmText: 'Mengerti',
+        ).show();
+        return;
+      }
+
+      if (confirmPassword == null) {
+        SweetDialog(
+          context: context,
+          dialogType: DialogType.error.toString(),
+          title: 'Konfirmasi kata sandi belum diisi',
+          content: 'Silahkan masukkan konfirmasi kata sandi baru',
+          confirmText: 'Mengerti',
+        ).show();
+        return;
+      }
+
+      if (password != confirmPassword) {
+        SweetDialog(
+          context: context,
+          dialogType: DialogType.error.toString(),
+          title: 'Konfirmasi kata sandi tidak sesuai',
+          content: 'Silahkan masukkan konfirmasi kata sandi yang sama',
+          confirmText: 'Mengerti',
+        ).show();
+        return;
+      }
+
+      PasswordCheck(password: password!).process(
+        PasswordResult(
+          onPasswordValid: startResetPassword,
+          onPasswordInvalid: (message) {
+            SweetDialog(
+              context: context,
+              dialogType: DialogType.error.toString(),
+              title: 'Kata sandi tidak valid',
+              content: message,
+              confirmText: 'Mengerti',
+            ).show();
+            return;
+          },
+        ),
+      );
+    }
+
+    checkPassword();
+  }
+
   @override
   void init() {}
 
-  /// A callback when the MVVM widget's [didChangeDependencies] is called.
-  /// For example, when `context.fetch<T>(listen: true/false)` is used within the view model,
-  /// then the [onDependenciesChange] method will be called every time these dependencies change.
   @override
   void onDependenciesChange() {}
 
-  /// A callback when the `build` method of the view is called.
   @override
   void onBuild() {}
 
-  /// A callback when the view is mounted.
   @override
   void onMount() {}
 
-  /// A callback when the view is unmounted
   @override
   void onUnmount() {}
 
-  /// Event callback when the application is visible and responding to user input.
   @override
   void onResume() {}
 
-  /// Event callback when the application is not currently visible to the user, not responding to
-  /// user input, and running in the background.
   @override
   void onPause() {}
 
-  /// Event callback when the application is in an inactive state and is not receiving user input.
-  /// For [IOS] only.
   @override
   void onInactive() {}
 
-  /// Event callback when the application is still hosted on a flutter engine but
-  /// is detached from any host views.
-  /// For [Android] only.
   @override
   void onDetach() {}
 }

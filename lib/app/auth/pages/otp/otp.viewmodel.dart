@@ -42,15 +42,7 @@ class OtpViewModel extends ViewModel {
 
     Future.delayed(const Duration(seconds: 3), () {
       loading.dismiss();
-      SweetDialog(
-        context: context,
-        barrierDismissible: false,
-        dialogType: DialogType.success.toString(),
-        title: 'Berhasil',
-        content: 'Silahkan lanjutkan buat kata sandi baru',
-        confirmText: 'Lanjutkan',
-        onConfirm: () => Get.offNamed(nextPage!),
-      ).show();
+      Get.offNamed(nextPage!);
     });
   }
 

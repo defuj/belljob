@@ -63,7 +63,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
                   onSubmit: (String verificationCode) {
                     viewModel.code = verificationCode;
                     viewModel.checkCode();
-                  }, // end onSubmit
+                  },
                 ),
               ),
             ),

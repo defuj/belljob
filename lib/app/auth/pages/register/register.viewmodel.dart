@@ -193,7 +193,10 @@ class RegisterViewModel extends ViewModel {
         content: 'Silahkan login untuk melanjutkan',
         confirmText: 'Mengerti',
         barrierDismissible: false,
-        onConfirm: () => Get.back(),
+        onConfirm: () {
+          Get.back();
+          Get.back();
+        },
       ).show();
     });
   }
