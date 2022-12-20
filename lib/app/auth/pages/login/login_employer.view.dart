@@ -82,12 +82,15 @@ class _LoginView extends StatelessView<LoginViewModel> {
           ),
           Align(
             alignment: Alignment.centerRight,
-            child: TextButton(
-              onPressed: viewModel.forgotPassword,
-              child: Text(
-                'Lupa kata sandi?',
-                style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                    color: IColors.secondary50, fontWeight: FontWeight.w500),
+            child: Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: InkWell(
+                onTap: viewModel.forgotPassword,
+                child: Text(
+                  'Lupa kata sandi?',
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      color: IColors.secondary50, fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           ),
@@ -100,25 +103,28 @@ class _LoginView extends StatelessView<LoginViewModel> {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Belum punya akun?',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2!
-                    .copyWith(color: IColors.neutral10),
+          Center(
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'Belum punya akun? ',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText2!
+                        .copyWith(color: IColors.neutral10),
+                  ),
+                  TextSpan(
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () => Get.toNamed('/register_employer'),
+                    text: 'Daftar',
+                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                        color: IColors.secondary50,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
               ),
-              TextButton(
-                onPressed: () => Get.toNamed('/register_employer'),
-                child: Text(
-                  'Daftar',
-                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                      color: IColors.secondary50, fontWeight: FontWeight.w500),
-                ),
-              ),
-            ],
+            ),
           ),
         ],
       ),

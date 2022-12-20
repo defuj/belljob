@@ -34,8 +34,12 @@ class _View extends StatelessView<BoardingViewModel> {
             ? const LoginWorker()
             : const LoginEmployer(),
         body: Padding(
-          padding:
-              const EdgeInsets.only(top: 56, left: 24, right: 24, bottom: 24),
+          padding: const EdgeInsets.only(
+            top: 56,
+            left: 24,
+            right: 24,
+            bottom: 24,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -47,8 +51,8 @@ class _View extends StatelessView<BoardingViewModel> {
                       Text(
                         'Bell ',
                         style: Theme.of(context).textTheme.headline2!.copyWith(
-                            color: Theme.of(context).colorScheme.secondary,
-                            fontWeight: FontWeight.w800),
+                            color: IColors.secondary50,
+                            fontWeight: FontWeight.w700),
                       ),
                       Text(
                         'Job',
@@ -84,7 +88,12 @@ class _View extends StatelessView<BoardingViewModel> {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 56),
+                child: Image.asset(
+                  'assets/images/worker.jpg',
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -162,6 +171,48 @@ class _View extends StatelessView<BoardingViewModel> {
                     ),
                   )
                 ],
+              ),
+              const SizedBox(height: 24),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Dengan masuk atau daftar, kamu menyetujui',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText2!
+                          .copyWith(color: IColors.neutral20),
+                    ),
+                    TextSpan(
+                      text: ' Ketentuan Layanan',
+                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                          color: IColors.secondary50,
+                          fontWeight: FontWeight.w600),
+                      recognizer: TapGestureRecognizer()..onTap = () => {},
+                    ),
+                    TextSpan(
+                      text: ' dan ',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText2!
+                          .copyWith(color: IColors.neutral10),
+                    ),
+                    TextSpan(
+                      text: 'Kebijakan Privasi',
+                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                          color: IColors.secondary50,
+                          fontWeight: FontWeight.w600),
+                      recognizer: TapGestureRecognizer()..onTap = () => {},
+                    ),
+                    TextSpan(
+                      text: ' kami.',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText2!
+                          .copyWith(color: IColors.neutral10),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

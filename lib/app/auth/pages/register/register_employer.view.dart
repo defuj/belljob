@@ -114,31 +114,28 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                 ),
               ),
               Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Sudah punya akun? ',
-                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                            color: IColors.neutral20,
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 0.15,
-                          ),
-                    ),
-                    InkWell(
-                      onTap: () => Navigator.of(context).pop(),
-                      child: Text(
-                        'Masuk',
-                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                              color: IColors.secondary50,
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 0.15,
-                            ),
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Sudah punya akun? ',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText2!
+                            .copyWith(color: IColors.neutral10),
                       ),
-                    ),
-                  ],
+                      TextSpan(
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => Navigator.of(context).pop(),
+                        text: 'Masuk',
+                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                            color: IColors.secondary50,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),
