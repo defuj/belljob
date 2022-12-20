@@ -3,7 +3,7 @@ import 'package:belljob/packages.dart';
 class SplashViewModel extends ViewModel {
   @override
   void init() {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       //   Navigator.pushReplacementNamed(context, '/main');
       Get.offNamed('/boarding');
     });

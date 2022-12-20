@@ -19,25 +19,17 @@ class _SplashView extends StatelessView<SplashViewModel> {
   Widget render(context, viewModel) {
     // create a splash screen with Scafold
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //   Image(
-            //     image: AssetImage('assets/images/belljob.logo.png'),
-            //     width: 135,
-            //   ),
-            //   Padding(
-            //     padding: EdgeInsets.only(top: 20),
-            //     child: Image(
-            //       image: AssetImage('assets/images/belljob.text.png'),
-            //       width: 135,
-            //     ),
-            //   ),
-            Text(
-              'Splash Screen',
-              style: Theme.of(context).textTheme.headline3,
-            )
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 56, horizontal: 56),
+              child: Image.asset(
+                'assets/images/worker.jpg',
+              ),
+            ),
           ],
         ),
       ),
