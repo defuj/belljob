@@ -1,10 +1,17 @@
 import 'package:belljob/packages.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class BoardingViewModel extends ViewModel {
   var panelController = PanelController();
+  final box = GetStorage();
 
-  String? _loginType; // worker or employer
+  String? _lang = 'id';
+  String? get lang => _lang;
+  set lang(String? value) {
+    _lang = value;
+    notifyListeners();
+  }
+
+  String? _loginType;
   String? get loginType => _loginType;
   set loginType(String? value) {
     _loginType = value;
@@ -18,7 +25,11 @@ class BoardingViewModel extends ViewModel {
   }
 
   @override
-  void init() {}
+  void init() {
+    box.listenKey('lang', (value) {
+      lang = value;
+    });
+  }
 
   @override
   void onDependenciesChange() {}

@@ -12,3 +12,4 @@ export 'package:belljob/app/index.dart';
 export 'package:camera/camera.dart';
 export 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 export 'package:get_storage/get_storage.dart';
+export 'package:sliding_up_panel/sliding_up_panel.dart';

@@ -12,4 +12,5 @@ abstract class IColors {
 
   static const secondary40 = Color(0xFFC00013);
   static const secondary50 = Color(0xFFEB1921);
+  static const secondary95 = Color(0xFFFFEDEA);
 }
