@@ -7,14 +7,14 @@ class Boarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MVVM<BoardingViewModel>(
-      view: () => const _BoardingView(),
+      view: () => const _View(),
       viewModel: BoardingViewModel(),
     );
   }
 }
 
-class _BoardingView extends StatelessView<BoardingViewModel> {
-  const _BoardingView({key}) : super(key: key, reactive: true);
+class _View extends StatelessView<BoardingViewModel> {
+  const _View({key}) : super(key: key, reactive: true);
 
   @override
   Widget render(context, viewModel) {

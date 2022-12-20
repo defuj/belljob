@@ -4,10 +4,16 @@ import 'package:google_ml_kit/google_ml_kit.dart';
 class TakePictureViewModel extends ViewModel {
   String cameraSelected = 'back';
   bool isCameraReady = false;
+  final bool? faceVerification;
   final box = GetStorage();
+  String? pathName;
 
-  TakePictureViewModel(List<CameraDescription>? cameras,
-      {this.cameraSelected = 'front'}) {
+  TakePictureViewModel(
+    List<CameraDescription>? cameras, {
+    this.cameraSelected = 'front',
+    this.faceVerification = false,
+    this.pathName = 'picturePath',
+  }) {
     this.cameras = cameras!;
   }
 
@@ -126,83 +132,85 @@ class TakePictureViewModel extends ViewModel {
   }
 
   Future<void> verifyFace(Face face) async {
-    if (face.leftEyeOpenProbability! < 0.5 ||
-        face.rightEyeOpenProbability! < 0.5) {
-      Fluttertoast.showToast(
-        msg: "Silahkan buka mata anda",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
-      return;
-    }
+    if (faceVerification!) {
+      if (face.leftEyeOpenProbability! < 0.5 ||
+          face.rightEyeOpenProbability! < 0.5) {
+        Fluttertoast.showToast(
+          msg: "Silahkan buka mata anda",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0,
+        );
+        return;
+      }
 
-    // If landmark detection was enabled with FaceDetectorOptions (mouth, ears,
-    // eyes, cheeks, and nose available):
-    final FaceLandmark? leftEar = face.landmarks[FaceLandmarkType.leftEar];
-    if (leftEar == null) {
-      Fluttertoast.showToast(
-        msg: "Telinga kiri tidak terdeteksi",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
+      // If landmark detection was enabled with FaceDetectorOptions (mouth, ears,
+      // eyes, cheeks, and nose available):
+      final FaceLandmark? leftEar = face.landmarks[FaceLandmarkType.leftEar];
+      if (leftEar == null) {
+        Fluttertoast.showToast(
+          msg: "Telinga kiri tidak terdeteksi",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0,
+        );
 
-      return;
-    }
+        return;
+      }
 
-    final FaceLandmark? rightEar = face.landmarks[FaceLandmarkType.rightEar];
-    if (rightEar == null) {
-      Fluttertoast.showToast(
-        msg: "Telinga kanan tidak terdeteksi",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
-      return;
-    }
+      final FaceLandmark? rightEar = face.landmarks[FaceLandmarkType.rightEar];
+      if (rightEar == null) {
+        Fluttertoast.showToast(
+          msg: "Telinga kanan tidak terdeteksi",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0,
+        );
+        return;
+      }
 
-    // If classification was enabled with FaceDetectorOptions:
-    if (face.smilingProbability == null) {
-      Fluttertoast.showToast(
-        msg: "Tertawa",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
-      return;
-    }
+      // If classification was enabled with FaceDetectorOptions:
+      if (face.smilingProbability == null) {
+        Fluttertoast.showToast(
+          msg: "Tertawa",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0,
+        );
+        return;
+      }
 
-    final FaceLandmark? nose = face.landmarks[FaceLandmarkType.noseBase];
-    if (nose == null) {
-      Fluttertoast.showToast(
-        msg: "Hidung tidak terdeteksi",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
-      return;
+      final FaceLandmark? nose = face.landmarks[FaceLandmarkType.noseBase];
+      if (nose == null) {
+        Fluttertoast.showToast(
+          msg: "Hidung tidak terdeteksi",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0,
+        );
+        return;
+      }
     }
 
     controller?.dispose();
     isCameraReady = false;
 
-    await box.write("profilePicturePath", imagePath!.path);
+    await box.write(pathName!, imagePath!.path);
     Get.back();
   }
 

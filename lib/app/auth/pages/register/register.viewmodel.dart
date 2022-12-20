@@ -1,8 +1,10 @@
+import 'package:belljob/app/auth/pages/register/verify_id.view.dart';
 import 'package:belljob/packages.dart';
 
 class RegisterViewModel extends ViewModel {
   final box = GetStorage();
   String? profilePicturePath;
+  String? idPicturePath;
   String name = '';
   String phone = '';
   String password = '';
@@ -25,7 +27,7 @@ class RegisterViewModel extends ViewModel {
     'Perempuan',
   ];
 
-  int genderNum = 1;
+  int genderNum = 0;
   String gender = 'Laki-Laki';
 
   void updateGender(int number) {
@@ -39,14 +41,14 @@ class RegisterViewModel extends ViewModel {
     notifyListeners();
   }
 
-  void takePictureFace() async {
-    await availableCameras()
-        .then((value) => Get.to(TakePictureFace(cameras: value)));
+  void takePictureFace({String pathName = 'pathName'}) async {
+    await availableCameras().then(
+        (value) => Get.to(TakePictureFace(cameras: value, pathName: pathName)));
   }
 
-  void takePictureId() async {
-    await availableCameras()
-        .then((value) => Get.to(TakePictureId(cameras: value)));
+  void takePictureId({String pathName = 'pathName'}) async {
+    await availableCameras().then(
+        (value) => Get.to(TakePictureId(cameras: value, pathName: pathName)));
   }
 
   void validate({required String accountType}) {
@@ -177,6 +179,21 @@ class RegisterViewModel extends ViewModel {
   }
 
   void createAccount() async {
+    if (accountType == AccountType.worker.toString()) {
+      box.write(
+        'register',
+        RegisterWorkerModel(
+          name: name,
+          address: address,
+          gender: gender,
+          job: job,
+          phone: phone,
+          password: password,
+          profilePicturePath: profilePicturePath,
+        ).toJson(),
+      );
+    }
+
     var loading = SweetDialog(
       context: context,
       dialogType: DialogType.loading.toString(),
@@ -186,26 +203,15 @@ class RegisterViewModel extends ViewModel {
 
     Future.delayed(const Duration(seconds: 3), () async {
       loading.dismiss();
-      SweetDialog(
-        context: context,
-        dialogType: DialogType.success.toString(),
-        title: 'Akun berhasil dibuat',
-        content: 'Silahkan login untuk melanjutkan',
-        confirmText: 'Mengerti',
-        barrierDismissible: false,
-        onConfirm: () {
-          Get.back();
-          Get.back();
-        },
-      ).show();
+      Get.off(const VerifyID());
     });
   }
 
-  void resetPicture() {
-    box.remove('profilePicturePath');
+  void resetPicture({String pathName = 'pathName'}) {
+    box.remove(pathName);
     notifyListeners();
 
-    takePictureFace();
+    takePictureFace(pathName: pathName);
   }
 
   @override
@@ -213,6 +219,13 @@ class RegisterViewModel extends ViewModel {
     box.listenKey('profilePicturePath', (value) {
       if (value != null) {
         profilePicturePath = value;
+        notifyListeners();
+      }
+    });
+
+    box.listenKey('idPicturePath', (value) {
+      if (value != null) {
+        idPicturePath = value;
         notifyListeners();
       }
     });

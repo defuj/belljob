@@ -19,15 +19,14 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
   @override
   Widget render(context, viewModel) {
     return Scaffold(
+      appBar: appBar(
+        context: context,
+        title: 'Buat Akun Pekerja',
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(
-            left: 16,
-            right: 16,
-            bottom: 16,
-            top: 56,
-          ),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -78,7 +77,8 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                                 width: 160,
                                 height: 160,
                                 child: TextButton(
-                                  onPressed: viewModel.takePictureFace,
+                                  onPressed: () => viewModel.takePictureFace(
+                                      pathName: 'profilePicturePath'),
                                   child: Text(
                                     'Ketuk untuk menambahkan foto',
                                     textAlign: TextAlign.center,
@@ -107,7 +107,8 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: TextButton(
-                      onPressed: viewModel.resetPicture,
+                      onPressed: () => viewModel.resetPicture(
+                          pathName: 'profilePicturePath'),
                       child: Text(
                         'Ubah Foto Profile',
                         style: Theme.of(context).textTheme.bodyText2!.copyWith(

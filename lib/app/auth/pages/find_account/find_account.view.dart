@@ -33,11 +33,7 @@ class _FindAccountView extends StatelessView<FindAccountViewModel> {
   @override
   Widget render(context, viewModel) {
     return Scaffold(
-      appBar: AppBar(
-        title: Container(),
-        backgroundColor: Colors.white,
-        elevation: 0,
-      ),
+      appBar: appBar(context: context),
       backgroundColor: Colors.white,
       body: Container(
         padding: const EdgeInsets.all(16),

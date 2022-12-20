@@ -18,15 +18,14 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
   @override
   Widget render(context, viewModel) {
     return Scaffold(
+      appBar: appBar(
+        context: context,
+        title: 'Pendaftaran Akun',
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(
-            left: 16,
-            right: 16,
-            bottom: 16,
-            top: 56,
-          ),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

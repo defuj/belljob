@@ -2,7 +2,12 @@ import 'package:belljob/packages.dart';
 
 class TakePictureFace extends StatefulWidget {
   final List<CameraDescription> cameras;
-  const TakePictureFace({super.key, required this.cameras});
+  final String? pathName;
+  const TakePictureFace({
+    super.key,
+    required this.cameras,
+    this.pathName = 'picturePath',
+  });
 
   @override
   State<TakePictureFace> createState() => _TakePictureFaceState();
@@ -19,7 +24,8 @@ class _TakePictureFaceState extends State<TakePictureFace> {
   Widget build(BuildContext context) {
     return MVVM<TakePictureViewModel>(
       view: () => const _TakePictureView(),
-      viewModel: TakePictureViewModel(widget.cameras),
+      viewModel:
+          TakePictureViewModel(widget.cameras, pathName: widget.pathName),
     );
   }
 }
