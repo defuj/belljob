@@ -47,22 +47,29 @@ class _View extends StatelessView<BoardingViewModel> {
             children: [
               Stack(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Bell ',
-                        style: Theme.of(context).textTheme.headline2!.copyWith(
-                            color: IColors.secondary50,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      Text(
-                        'Job',
-                        style: Theme.of(context).textTheme.headline2!.copyWith(
-                            color: IColors.neutral20,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Neang ',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline2!
+                              .copyWith(
+                                  color: IColors.secondary50,
+                                  fontWeight: FontWeight.w700),
+                        ),
+                        TextSpan(
+                          text: 'Gawe',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline2!
+                              .copyWith(
+                                  color: IColors.neutral20,
+                                  fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
