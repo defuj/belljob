@@ -15,3 +15,5 @@ export 'package:get_storage/get_storage.dart';
 export 'package:sliding_up_panel/sliding_up_panel.dart';
 export 'package:flutter/gestures.dart';
 export 'package:dotted_border/dotted_border.dart';
+export 'package:flutter/material.dart';
+export 'package:flutter_localizations/flutter_localizations.dart';

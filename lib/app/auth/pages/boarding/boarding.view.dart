@@ -17,6 +17,8 @@ class _View extends StatelessView<BoardingViewModel> {
 
   @override
   Widget render(context, viewModel) {
+    // var localizationDelegate = LocalizedApp.of(context).delegate;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SlidingUpPanel(
@@ -113,7 +115,7 @@ class _View extends StatelessView<BoardingViewModel> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Cari Pekerja',
+                            'boarding.action1.title'.tr,
                             style: Theme.of(context)
                                 .textTheme
                                 .headline4!
@@ -123,7 +125,7 @@ class _View extends StatelessView<BoardingViewModel> {
                           ),
                           const SizedBox(height: 16),
                           Text(
-                            'Pesan jasa untuk membantu pekerjaanmu',
+                            'boarding.action1.desc'.tr,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyText2!
@@ -150,7 +152,7 @@ class _View extends StatelessView<BoardingViewModel> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Jadi Pekerja',
+                            'boarding.action2.title'.tr,
                             style: Theme.of(context)
                                 .textTheme
                                 .headline4!
@@ -160,7 +162,7 @@ class _View extends StatelessView<BoardingViewModel> {
                           ),
                           const SizedBox(height: 16),
                           Text(
-                            'Bantu orang lain menyelesaikan masalahnya',
+                            'boarding.action2.desc'.tr,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyText2!

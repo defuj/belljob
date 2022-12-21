@@ -8,6 +8,8 @@ environment:
 dependencies:
     flutter:
         sdk: flutter
+    flutter_localizations:
+        sdk: flutter
     cupertino_icons: ^1.0.2
     flutter_svg: ^1.1.6
     page_transition: ^2.0.5
@@ -71,6 +73,7 @@ flutter:
         - assets/icons/
         - assets/icons/svg/
         - assets/animations/
+        - assets/i18n/
 
     fonts:
         - family: Inter

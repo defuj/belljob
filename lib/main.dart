@@ -2,21 +2,27 @@ import 'packages.dart';
 
 Future<void> main() async {
   // runApp(const Root());
+  var lightTheme = ThemeData(
+    useMaterial3: true,
+    colorScheme: lightColorScheme,
+    textTheme: textTheme,
+  );
+
+  var darkTheme = ThemeData(
+    useMaterial3: true,
+    colorScheme: darkColorScheme,
+    textTheme: textTheme,
+  );
   await GetStorage.init();
   runApp(GetMaterialApp(
     title: 'Bell Job',
-    theme: ThemeData(
-      useMaterial3: true,
-      colorScheme: lightColorScheme,
-      textTheme: textTheme,
-    ),
-    // darkTheme: ThemeData(
-    //   useMaterial3: true,
-    //   colorScheme: darkColorScheme,
-    //   textTheme: textTheme,
-    // ),
+    theme: lightTheme,
+    darkTheme: darkTheme,
     initialRoute: '/splash',
     getPages: getRoutes,
+    translations: Translate(),
+    locale: Get.deviceLocale, // Locale('id', 'ID')
+    fallbackLocale: const Locale('id', 'ID'), //Locale('en', 'US')
   ));
 }
 
@@ -25,19 +31,23 @@ class Root extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var lightTheme = ThemeData(
+      useMaterial3: true,
+      colorScheme: lightColorScheme,
+      textTheme: textTheme,
+    );
+
+    var darkTheme = ThemeData(
+      useMaterial3: true,
+      colorScheme: darkColorScheme,
+      textTheme: textTheme,
+    );
+
     return MaterialApp(
       title: 'Bell Job',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: lightColorScheme,
-        textTheme: textTheme,
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        colorScheme: darkColorScheme,
-        textTheme: textTheme,
-      ),
-      initialRoute: '/',
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      initialRoute: '/splash',
       routes: routes,
     );
   }

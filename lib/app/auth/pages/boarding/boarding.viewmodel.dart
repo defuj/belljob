@@ -8,6 +8,7 @@ class BoardingViewModel extends ViewModel {
   String? get lang => _lang;
   set lang(String? value) {
     _lang = value;
+    Get.updateLocale(Locale(value!));
     notifyListeners();
   }
 
@@ -25,10 +26,10 @@ class BoardingViewModel extends ViewModel {
   }
 
   @override
-  void init() {
-    box.listenKey('lang', (value) {
-      lang = value;
-    });
+  Future<void> init() async {
+    // box.listenKey('lang', (value) {
+    //   lang = value;
+    // });
   }
 
   @override

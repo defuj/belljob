@@ -1,4 +1,5 @@
 export 'password_check.utils.dart';
+export 'translate.utils.dart';
 
 // validate phone number
 bool validatePhoneNumber({required String phone}) {
