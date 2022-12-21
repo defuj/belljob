@@ -163,35 +163,35 @@ class _View extends StatelessView<BoardingViewModel> {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: 'Dengan masuk atau daftar, kamu menyetujui',
+                      text: 'boarding.agreement.1'.tr,
                       style: Theme.of(context)
                           .textTheme
                           .bodyText2!
                           .copyWith(color: IColors.neutral20),
                     ),
                     TextSpan(
-                      text: ' Ketentuan Layanan',
+                      text: 'boarding.agreement.terms'.tr,
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
                           color: IColors.secondary50,
                           fontWeight: FontWeight.w600),
                       recognizer: TapGestureRecognizer()..onTap = () => {},
                     ),
                     TextSpan(
-                      text: ' dan ',
+                      text: 'boarding.agreement.2'.tr,
                       style: Theme.of(context)
                           .textTheme
                           .bodyText2!
                           .copyWith(color: IColors.neutral10),
                     ),
                     TextSpan(
-                      text: 'Kebijakan Privasi',
+                      text: 'boarding.agreement.privacy'.tr,
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
                           color: IColors.secondary50,
                           fontWeight: FontWeight.w600),
                       recognizer: TapGestureRecognizer()..onTap = () => {},
                     ),
                     TextSpan(
-                      text: ' kami.',
+                      text: 'boarding.agreement.3'.tr,
                       style: Theme.of(context)
                           .textTheme
                           .bodyText2!

@@ -43,14 +43,14 @@ class _LoginView extends StatelessView<LoginViewModel> {
               ),
             ),
             Text(
-              'Selamat datang kembali',
+              'login.welcome'.tr,
               style: Theme.of(context).textTheme.headline2!.copyWith(
                   color: IColors.neutral20, fontWeight: FontWeight.w600),
             ),
             Container(
               margin: const EdgeInsets.only(top: 8),
               child: Text(
-                'Raih penghasilan tambahan bersama Bell Job',
+                'login.worker'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
@@ -60,7 +60,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
             Container(
               margin: const EdgeInsets.only(top: 32),
               child: Text(
-                'Nomor Handphone',
+                'form.label.phone'.tr,
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       color: IColors.neutral10,
                       fontWeight: FontWeight.w500,
@@ -68,17 +68,19 @@ class _LoginView extends StatelessView<LoginViewModel> {
               ),
             ),
             InputPhoneNumber(
+              hintText: 'form.hint.phone'.tr,
               onChanged: (value) => viewModel.phone = '+62$value',
             ),
             Container(
               margin: const EdgeInsets.only(top: 16),
               child: Text(
-                'Kata Sandi',
+                'form.label.password'.tr,
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                     color: IColors.neutral10, fontWeight: FontWeight.w500),
               ),
             ),
             InputPassword(
+              hintText: 'form.hint.password'.tr,
               onChanged: (value) => viewModel.password = value,
             ),
             Container(
@@ -88,7 +90,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
                 child: InkWell(
                   onTap: viewModel.forgotPassword,
                   child: Text(
-                    'Lupa kata sandi?',
+                    'action.forgot_password'.tr,
                     style: Theme.of(context).textTheme.bodyText2!.copyWith(
                         color: IColors.secondary50,
                         fontWeight: FontWeight.w500),
@@ -99,7 +101,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
             Container(
               margin: const EdgeInsets.only(top: 35, bottom: 7),
               child: ButtonPrimary(
-                text: 'Masuk sebagai Pekerja',
+                text: 'action.worker.login'.tr,
                 onPressed: () =>
                     viewModel.login(loginType: AccountType.worker.toString()),
               ),
@@ -109,7 +111,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: 'Belum punya akun? ',
+                      text: 'label.dont_have_account'.tr,
                       style: Theme.of(context)
                           .textTheme
                           .bodyText2!
@@ -118,7 +120,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
                     TextSpan(
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => Get.toNamed('/register_worker'),
-                      text: 'Daftar',
+                      text: 'action.register'.tr,
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
                           color: IColors.secondary50,
                           fontWeight: FontWeight.w500),
