@@ -25,7 +25,15 @@ class Translate extends Translations {
           'label.dont_have_account': 'Belum punya akun?',
           'action.register': 'Daftar',
           'login.worker': 'Raih penghasilan tambahan bersama Bell Job',
-          'action.worker.login': 'Masuk sebagai Pekerja'
+          'action.worker.login': 'Masuk sebagai Pekerja',
+          'label.register.title': 'Pendaftaran Akun',
+          'label.register.desc': 'Lengkapi form untuk melanjutkan pendaftaran',
+          'form.label.full_name': 'Nama Lengkap',
+          'form.hint.full_name': 'Masukkan nama lengkap',
+          'form.label.password_confirmation': 'Ulangi Kata Sandi',
+          'form.hint.password_confirmation': 'Masukkan ulang kata sandi',
+          'label.have_account': 'Sudah punya akun?',
+          'action.login': 'Masuk',
         },
         'en_US': {
           'boarding.action1.title': 'Looking for Workers',
@@ -49,7 +57,15 @@ class Translate extends Translations {
           'label.dont_have_account': 'Don\'t have an account?',
           'action.register': 'Register',
           'login.worker': 'Earn extra income with Bell Job',
-          'action.worker.login': 'Login as Worker'
+          'action.worker.login': 'Login as Worker',
+          'label.register.title': 'Account Registration',
+          'label.register.desc': 'Fill in the form to continue registration',
+          'form.label.full_name': 'Full Name',
+          'form.hint.full_name': 'Enter full name',
+          'form.label.password_confirmation': 'Repeat Password',
+          'form.hint.password_confirmation': 'Enter password again',
+          'label.have_account': 'Already have an account?',
+          'action.login': 'Login',
         },
       };
 }

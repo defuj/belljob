@@ -20,7 +20,7 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
     return Scaffold(
       appBar: appBar(
         context: context,
-        title: 'Pendaftaran Akun',
+        title: 'label.register.title'.tr,
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -30,14 +30,14 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Pendaftaran akun',
+                'label.register.title'.tr,
                 style: Theme.of(context).textTheme.headline2!.copyWith(
                     color: IColors.neutral20, fontWeight: FontWeight.w600),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
-                  'Lengkapi form untuk melanjutkan pendaftaran',
+                  'label.register.desc'.tr,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2!
@@ -47,7 +47,7 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
               Padding(
                 padding: const EdgeInsets.only(top: 32, bottom: 4),
                 child: Text(
-                  'Nama Lengkap',
+                  'form.label.full_name'.tr,
                   style: Theme.of(context).textTheme.subtitle1!.copyWith(
                         color: IColors.neutral10,
                         fontWeight: FontWeight.w500,
@@ -56,13 +56,13 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                 ),
               ),
               InputText(
-                hintText: 'Masukkan nama lengkap',
+                hintText: 'form.hint.full_name'.tr,
                 onChanged: (value) => viewModel.name = value,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 24, bottom: 4),
                 child: Text(
-                  'Nomor Handphone',
+                  'form.label.phone'.tr,
                   style: Theme.of(context).textTheme.subtitle1!.copyWith(
                         color: IColors.neutral10,
                         fontWeight: FontWeight.w500,
@@ -71,13 +71,13 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                 ),
               ),
               InputPhoneNumber(
-                hintText: 'Masukkan nomor handphone',
+                hintText: 'form.hint.phone'.tr,
                 onChanged: (value) => viewModel.phone = '+62$value',
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 24, bottom: 4),
                 child: Text(
-                  'Kata Sandi',
+                  'form.label.password'.tr,
                   style: Theme.of(context).textTheme.subtitle1!.copyWith(
                         color: IColors.neutral10,
                         fontWeight: FontWeight.w500,
@@ -86,13 +86,13 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                 ),
               ),
               InputPassword(
-                hintText: 'Masukkan kata sandi',
+                hintText: 'form.hint.password'.tr,
                 onChanged: (value) => viewModel.password = value,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 24, bottom: 4),
                 child: Text(
-                  'Ulangi Kata Sandi',
+                  'form.label.password_confirmation'.tr,
                   style: Theme.of(context).textTheme.subtitle1!.copyWith(
                         color: IColors.neutral10,
                         fontWeight: FontWeight.w500,
@@ -101,13 +101,13 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                 ),
               ),
               InputPassword(
-                hintText: 'Masukkan ulang kata sandi',
+                hintText: 'form.hint.password_confirmation'.tr,
                 onChanged: (value) => viewModel.confirmPassword = value,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 24, bottom: 16),
                 child: ButtonPrimary(
-                  text: 'Daftar',
+                  text: 'action.register'.tr,
                   onPressed: () => viewModel.validate(
                     accountType: AccountType.employer.toString(),
                   ),
@@ -118,7 +118,7 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: 'Sudah punya akun? ',
+                        text: 'label.have_account'.tr,
                         style: Theme.of(context)
                             .textTheme
                             .bodyText2!
@@ -127,7 +127,7 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                       TextSpan(
                         recognizer: TapGestureRecognizer()
                           ..onTap = () => Navigator.of(context).pop(),
-                        text: 'Masuk',
+                        text: 'action.login'.tr,
                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: IColors.secondary50,
                             fontWeight: FontWeight.w500),
