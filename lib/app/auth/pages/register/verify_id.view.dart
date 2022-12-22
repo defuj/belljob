@@ -21,7 +21,7 @@ class _View extends StatelessView<RegisterViewModel> {
       backgroundColor: Colors.white,
       appBar: appBar(
         context: context,
-        title: 'Verifikasi KTP',
+        title: 'label.verification_id_card'.tr,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -31,8 +31,8 @@ class _View extends StatelessView<RegisterViewModel> {
           children: [
             Text(
               viewModel.idPicturePath == null
-                  ? 'Siapkan e-KTP'
-                  : 'Konfirmasi e-KTP',
+                  ? 'label.preview_id_card'.tr
+                  : 'label.confirm_id_card'.tr,
               style: Theme.of(context).textTheme.headline2!.copyWith(
                   color: IColors.neutral10, fontWeight: FontWeight.w600),
             ),

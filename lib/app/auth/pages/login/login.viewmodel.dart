@@ -22,9 +22,9 @@ class LoginViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.success.toString(),
-          title: 'Login berhasil',
-          content: 'Selamat datang di Belljob',
-          confirmText: 'Lanjutkan',
+          title: 'dialog.login_success.title'.tr,
+          content: 'dialog.login_success.desc'.tr,
+          confirmText: 'action.next'.tr,
         ).show();
       });
     }
@@ -34,10 +34,9 @@ class LoginViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.warning.toString(),
-          title: 'Nomor handphone tidak boleh kosong',
-          content:
-              'Silahkan isi nomor handphone anda terlebih dahulu untuk melanjutkan',
-          confirmText: 'Mengerti',
+          title: 'dialog.empty_phone.title'.tr,
+          content: 'dialog.empty_phone.desc'.tr,
+          confirmText: 'action.understand'.tr,
         ).show();
         return;
       }
@@ -46,10 +45,9 @@ class LoginViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.warning.toString(),
-          title: 'Nomor handphone tidak valid',
-          content:
-              'Silahkan isi nomor handphone anda dengan benar untuk melanjutkan',
-          confirmText: 'Mengerti',
+          title: 'dialog.invalid_phone.title'.tr,
+          content: 'dialog.invalid_phone.desc'.tr,
+          confirmText: 'action.understand'.tr,
         ).show();
         return;
       }
@@ -58,9 +56,9 @@ class LoginViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.warning.toString(),
-          title: 'Kata sandi tidak boleh kosong',
-          content: 'Silahkan isi kata sandi anda terlebih dahulu',
-          confirmText: 'Mengerti',
+          title: 'dialog.empty_password.title'.tr,
+          content: 'dialog.empty_password.desc'.tr,
+          confirmText: 'action.understand'.tr,
         ).show();
         return;
       }
@@ -72,9 +70,9 @@ class LoginViewModel extends ViewModel {
             SweetDialog(
               context: context,
               dialogType: DialogType.error.toString(),
-              title: 'Password tidak valid',
+              title: 'dialog.invalid_password.title'.tr,
               content: message,
-              confirmText: 'Mengerti',
+              confirmText: 'action.understand'.tr,
             ).show();
           },
         ),
@@ -87,7 +85,7 @@ class LoginViewModel extends ViewModel {
   void forgotPassword() {
     Get.to(FindAccount(
       nextPage: '/reset_password',
-      title: 'Lupa Kata Sandi',
+      title: 'label.forgot_password'.tr,
       accountType: loginType,
       action: OtpAction.forgotPassword.toString(),
     ));

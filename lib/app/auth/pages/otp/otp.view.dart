@@ -29,14 +29,16 @@ class _OtpView extends StatelessView<OtpViewModel> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              'Masukan Kode Verifikasi',
+              'label.input_verification_code'.tr,
               style: Theme.of(context).textTheme.headline2!.copyWith(
                   color: IColors.neutral10, fontWeight: FontWeight.w600),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text(
-                'Masukan kode verifikasi yang telah dikirimkan melalui SMS ke ${viewModel.phoneNumber}',
+                'label.input_verification_code_sent'.trParams({
+                  'phone': viewModel.phoneNumber!,
+                }),
                 style: Theme.of(context).textTheme.bodyText2!.copyWith(
                     color: IColors.neutral20, fontWeight: FontWeight.w500),
               ),
@@ -68,7 +70,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Belum menerima kode verifikasi? ',
+                    'label.not_received_code'.tr,
                     style: Theme.of(context).textTheme.bodyText2!.copyWith(
                           color: IColors.neutral20,
                           fontWeight: FontWeight.w400,
@@ -80,7 +82,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Tunggu',
+                          'label.wait'.tr,
                           style:
                               Theme.of(context).textTheme.bodyText2!.copyWith(
                                     color: IColors.neutral20,
@@ -103,7 +105,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
                     InkWell(
                       onTap: viewModel.startTimer,
                       child: Text(
-                        'Kirim ulang',
+                        'action.resend_code'.tr,
                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
                               color: IColors.secondary50,
                               fontWeight: FontWeight.w500,
@@ -117,7 +119,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
             Container(
               padding: const EdgeInsets.only(top: 24, bottom: 24),
               child: ButtonPrimary(
-                text: 'Konfirmasi',
+                text: 'action.confirm'.tr,
                 onPressed: viewModel.checkCode,
               ),
             ),
@@ -126,7 +128,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Ubah nomor handphone? ',
+                    'label.change_phone_number'.tr,
                     style: Theme.of(context).textTheme.bodyText2!.copyWith(
                           color: IColors.neutral20,
                           fontWeight: FontWeight.w400,
@@ -136,7 +138,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
                   InkWell(
                     onTap: () => Navigator.of(context).pop(),
                     child: Text(
-                      'Ubah',
+                      'action.change'.tr,
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: IColors.secondary50,
                             fontWeight: FontWeight.w500,

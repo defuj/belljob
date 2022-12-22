@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 class PasswordResult {
   final Function() onPasswordValid;
   final Function(String) onPasswordInvalid;
@@ -13,19 +15,17 @@ class PasswordCheck {
 
   void process(PasswordResult result) {
     if (password!.length < 8) {
-      result.onPasswordInvalid('Kata sandi minimal 8 karakter');
+      result.onPasswordInvalid('label.password_min_length'.tr);
     } else if (password!.length > 20) {
-      result.onPasswordInvalid('Kata sandi maksimal 20 karakter');
+      result.onPasswordInvalid('label.password_max_length'.tr);
     } else if (password!.contains(' ')) {
-      result.onPasswordInvalid('Kata sandi tidak boleh mengandung spasi');
+      result.onPasswordInvalid('label.password_no_space'.tr);
     } else if (!password!.contains(RegExp(r'[A-Z]'))) {
-      result.onPasswordInvalid(
-          'Kata sandi harus mengandung minimal 1 huruf besar');
+      result.onPasswordInvalid('label.password_capital_letter'.tr);
     } else if (!password!.contains(RegExp(r'[a-z]'))) {
-      result.onPasswordInvalid(
-          'Kata sandi harus mengandung minimal 1 huruf kecil');
+      result.onPasswordInvalid('label.password_lowercase_letter'.tr);
     } else if (!password!.contains(RegExp(r'[0-9]'))) {
-      result.onPasswordInvalid('Kata sandi harus mengandung minimal 1 angka');
+      result.onPasswordInvalid('label.password_number'.tr);
     } else {
       result.onPasswordValid();
     }

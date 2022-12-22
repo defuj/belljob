@@ -19,10 +19,9 @@ class FindAccountViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'Nomor handphone tidak boleh kosong',
-        content:
-            'Silahkan isi nomor handphone anda terlebih dahulu untuk melanjutkan',
-        confirmText: 'Mengerti',
+        title: 'dialog.empty_phone.title'.tr,
+        content: 'dialog.empty_phone.desc'.tr,
+        confirmText: 'action.understand'.tr,
       ).show();
       return;
     }
@@ -51,9 +50,9 @@ class FindAccountViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'Nomor handphone tidak valid',
-        content: 'Silahkan masukkan nomor handphone yang valid',
-        confirmText: 'Mengerti',
+        title: 'dialog.invalid_phone.title'.tr,
+        content: 'dialog.invalid_phone.desc'.tr,
+        confirmText: 'action.understand'.tr,
       ).show();
     }
   }

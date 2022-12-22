@@ -16,10 +16,9 @@ class OtpViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'Kode verifikasi tidak boleh kosong',
-        content:
-            'Silahkan isi kode verifikasi anda terlebih dahulu untuk melanjutkan',
-        confirmText: 'Mengerti',
+        title: 'dialog.empty_verification_code.title'.tr,
+        content: 'dialog.empty_verification_code.desc'.tr,
+        confirmText: 'action.understand'.tr,
       ).show();
       return;
     }
@@ -29,9 +28,9 @@ class OtpViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'Kode verifikasi tidak valid',
-        content: 'Silahkan isi kode verifikasi anda dengan benar',
-        confirmText: 'Mengerti',
+        title: 'dialog.invalid_verification_code.title'.tr,
+        content: 'dialog.invalid_verification_code.desc'.tr,
+        confirmText: 'action.understand'.tr,
       ).show();
       return;
     }

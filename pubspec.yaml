@@ -36,7 +36,7 @@ dependencies:
     # For Architecture MVVM
     pmvvm: ^4.0.1
     # Camera Plugin
-    camera: ^0.10.0+4
+    camera: ^0.10.1
     # border dashed or dotted
     dotted_border: ^2.0.0+3
 
