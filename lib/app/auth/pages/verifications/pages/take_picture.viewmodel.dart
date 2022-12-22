@@ -1,5 +1,4 @@
 import 'package:belljob/packages.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
 
 class TakePictureViewModel extends ViewModel {
   String cameraSelected = 'back';

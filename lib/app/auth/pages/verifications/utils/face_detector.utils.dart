@@ -1,5 +1,4 @@
-import 'package:camera/camera.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:belljob/packages.dart';
 
 class DetectingResult {
   final Function(Face) onFaceDetected;

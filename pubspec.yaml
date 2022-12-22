@@ -11,19 +11,19 @@ dependencies:
     flutter_localizations:
         sdk: flutter
     cupertino_icons: ^1.0.2
-    flutter_svg: ^1.1.6
+    # flutter_svg: ^1.1.6
     page_transition: ^2.0.5
-    firebase_core: ^1.16.0
+    # firebase_core: ^1.16.0
     fluttertoast: ^8.1.1
     # For Chache Management
     shared_preferences: ^2.0.15
     # For Networking
-    dio: ^4.0.6
-    http: ^0.13.4
+    # dio: ^4.0.6
+    # http: ^0.13.4
     # For Encryption
-    encrypt: ^5.0.1
+    # encrypt: ^5.0.1
     # Google Fonts
-    google_fonts: ^3.0.1
+    # google_fonts: ^3.0.1
     # For Animations
     lottie: ^2.1.0
     # For Image Slider/Coraousel
@@ -49,7 +49,8 @@ dependencies:
     # Path Provider
     path_provider: ^2.0.11
     # Google ML Kit
-    google_ml_kit: ^0.13.0
+    # google_ml_kit: ^0.13.0
+    google_mlkit_face_detection: ^0.5.0
     # State Management, Route Management, Dependency Management
     get: ^4.6.5
     get_storage: ^2.0.3
