@@ -39,7 +39,7 @@ class _View extends StatelessView<RegisterViewModel> {
             Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text(
-                'Data kamu hanya digunakan untuk proses verifikasi, data kamu bakalan tersimpan dan terlindungi.',
+                'verification.id_card.note'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
@@ -72,7 +72,7 @@ class _View extends StatelessView<RegisterViewModel> {
             Padding(
               padding: const EdgeInsets.only(bottom: 8),
               child: Text(
-                'Pastikan KTP kamu masih bisa terbaca dengan baik',
+                'verification.id_card.desc'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
@@ -85,18 +85,18 @@ class _View extends StatelessView<RegisterViewModel> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ButtonSecondary(
-                      text: 'Ambil ulang',
+                      text: 'action.re_take_picture'.tr,
                       onPressed: () =>
                           viewModel.takePictureId(pathName: 'idPicturePath'),
                     ),
                     const SizedBox(width: 8),
-                    ButtonPrimary(text: 'konfirmasi', onPressed: () {})
+                    ButtonPrimary(text: 'action.confirm'.tr, onPressed: () {})
                   ],
                 ),
               ),
             if (viewModel.idPicturePath == null)
               ButtonPrimary(
-                text: 'Ambil Gambar',
+                text: 'action.take_picture'.tr,
                 onPressed: () =>
                     viewModel.takePictureId(pathName: 'idPicturePath'),
               ),

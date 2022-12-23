@@ -177,7 +177,7 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                       child: RadioListTile(
                         contentPadding: EdgeInsets.zero,
                         title: Text(
-                          'Laki-Laki',
+                          'label.gender.male'.tr,
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1!
@@ -203,7 +203,7 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                       child: RadioListTile(
                         contentPadding: EdgeInsets.zero,
                         title: Text(
-                          'Perempuan',
+                          'label.gender.female'.tr,
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1!

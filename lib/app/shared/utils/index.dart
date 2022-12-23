@@ -1,4 +1,4 @@
-export 'password_check.util.dart';
+export 'password.util.dart';
 export 'translate.util.dart';
 export 'languages/en.language.dart';
 export 'languages/id.language.dart';

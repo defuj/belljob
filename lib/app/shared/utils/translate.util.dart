@@ -89,6 +89,50 @@ class Translate extends Translations {
           'label.verification_id_card': 'Verifikasi KTP',
           'label.prepare_id_card': 'Siapkan e-KTP',
           'label.confirm_id_card': 'Konfirmasi e-KTP',
+          'verification.id_card.note':
+              'Data kamu hanya digunakan untuk proses verifikasi, data kamu bakalan tersimpan dan terlindungi.',
+          'verification.id_card.desc':
+              'Pastikan KTP kamu masih bisa terbaca dengan baik',
+          'action.take_picture': 'Ambil Foto',
+          'action.re_take_picture': 'Ambil Ulang Foto',
+          'label.choose_job_type': 'Pilih Jenis Pekerjaan',
+          'label.gender.male': 'Laki-Laki',
+          'label.gender.female': 'Perempuan',
+          'dialog.no_profile_picture.title': 'Foto profil tidak boleh kosong',
+          'dialog.no_profile_picture.desc':
+              'Silahkan pilih foto profil anda terlebih dahulu untuk melanjutkan',
+          'dialog.no_address.title': 'Alamat tidak boleh kosong',
+          'dialog.no_address.desc':
+              'Silahkan isi alamat terlebih dahulu untuk melanjutkan',
+          'dialog.no_job_type.title': 'Belum memilih jenis pekerjaan',
+          'dialog.no_job_type.desc':
+              'Silahkan pilih jenis pekerjaan terlebih dahulu untuk melanjutkan',
+          'dialog.empty_name.title': 'Nama tidak boleh kosong',
+          'dialog.empty_name.desc':
+              'Silahkan isi nama lengkap anda terlebih dahulu untuk melanjutkan',
+          'dialog.empty_password_confirm.title':
+              'Konfirmasi kata sandi tidak boleh kosong',
+          'dialog.empty_password_confirm.desc':
+              'Silahkan isi konfirmasi kata sandi anda terlebih dahulu',
+          'dialog.password_not_match.title':
+              'Konfirmasi kata sandi tidak cocok',
+          'dialog.password_not_match.desc':
+              'Silahkan masukan konfirmasi kata sandi anda yang cocok',
+          'dialog.invalid_password.title': 'Kata sandi tidak valid',
+          'job.type.builder': 'Tukang Bangungan',
+          'job.type.carpenter': 'Tukang Kayu',
+          'job.type.cook': 'Koki',
+          'job.type.driver': 'Supir',
+          'job.type.electrician': 'Tukang Listrik',
+          'job.type.gardener': 'Tukang Taman',
+          'job.type.maid': 'Bidan',
+          'job.type.mechanic': 'Tukang Mesin',
+          'job.type.painter': 'Tukang Cat',
+          'job.type.plumber': 'Tukang Air',
+          'job.type.seamstress': 'Tukang Jahit',
+          'job.type.welder': 'Tukang Las',
+          'job.type.other': 'Lainnya',
+          'label.put_id_card_in_the_box': 'Posisikan e-KTP di dalam kotak',
         },
         'en_US': {
           'boarding.action1.title': 'Looking for Workers',
@@ -172,6 +216,44 @@ class Translate extends Translations {
           'label.verification_id_card': 'ID Card Verification',
           'label.prepare_id_card': 'Prepare ID Card',
           'label.confirm_id_card': 'Confirm ID Card',
+          'verification.id_card.note':
+              'Your data is only used for verification purposes, your data will be stored and protected.',
+          'verification.id_card.desc':
+              'Make sure your ID card is still readable',
+          'action.take_picture': 'Take Picture',
+          'action.re_take_picture': 'Re-Take Picture',
+          'label.choose_job_type': 'Choose Job Type',
+          'label.gender.male': 'Male',
+          'label.gender.female': 'Female',
+          'dialog.no_profile_picture.title': 'Profile picture cannot be empty',
+          'dialog.no_profile_picture.desc':
+              'Please select your profile picture first to continue',
+          'dialog.no_address.title': 'Address cannot be empty',
+          'dialog.no_address.desc':
+              'Please fill in your address first to continue',
+          'dialog.no_job_type.title': 'No job type selected',
+          'dialog.no_job_type.desc':
+              'Please select your job type first to continue',
+          'dialog.empty_name.title': 'Full name cannot be empty',
+          'dialog.empty_name.desc':
+              'Please fill in your full name first to continue',
+          'dialog.password_not_match.title': 'Password not match',
+          'dialog.password_not_match.desc': 'Please enter the same password',
+          'dialog.invalid_password.title': 'Invalid password',
+          'job.type.builder': 'Builder',
+          'job.type.carpenter': 'Carpenter',
+          'job.type.cook': 'Cook',
+          'job.type.driver': 'Driver',
+          'job.type.electrician': 'Electrician',
+          'job.type.gardener': 'Gardener',
+          'job.type.maid': 'Maid',
+          'job.type.mechanic': 'Mechanic',
+          'job.type.painter': 'Painter',
+          'job.type.plumber': 'Plumber',
+          'job.type.seamstress': 'Seamstress',
+          'job.type.welder': 'Welder',
+          'job.type.other': 'Other',
+          'label.put_id_card_in_the_box': 'Put ID Card in the box',
         },
       };
 }

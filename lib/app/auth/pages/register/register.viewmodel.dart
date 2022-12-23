@@ -12,23 +12,25 @@ class RegisterViewModel extends ViewModel {
   String? accountType;
   String? address = '';
   List<String> jobList = [
-    'Pilih jenis pekerjaan',
-    'Baby Sitter',
-    'Tukang Kebun',
-    'Tukang Cuci',
-    'Tukang Masak',
-    'Tukang Jemur',
-    'Tukang Ojek',
+    'label.choose_job_type'.tr,
+    'job.type.builder'.tr,
+    'job.type.driver'.tr,
+    'job.type.cook'.tr,
+    'job.type.carpenter'.tr,
+    'job.type.gardener'.tr,
+    'job.type.electrician'.tr,
+    'job.type.plumber'.tr,
+    'job.type.mechanic'.tr,
   ];
-  String job = 'Pilih jenis pekerjaan';
+  String job = 'label.choose_job_type'.tr;
 
   List<String> genderList = [
-    'Laki-Laki',
-    'Perempuan',
+    'label.gender.male'.tr,
+    'label.gender.female'.tr,
   ];
 
   int genderNum = 0;
-  String gender = 'Laki-Laki';
+  String gender = 'label.gender.male'.tr;
 
   void updateGender(int number) {
     genderNum = number;
@@ -59,10 +61,9 @@ class RegisterViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'Belum ada foto profil',
-          content:
-              'Silahkan ambil foto profil terlebih dahulu untuk melanjutkan',
-          confirmText: 'Mengerti',
+          title: 'dialog.no_profile_picture.title'.tr,
+          content: 'dialog.no_profile_picture.desc'.tr,
+          confirmText: 'action.understand'.tr,
         ).show();
 
         return;
@@ -72,22 +73,21 @@ class RegisterViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'Belum ada alamat',
-          content: 'Silahkan isi alamat terlebih dahulu untuk melanjutkan',
-          confirmText: 'Mengerti',
+          title: 'dialog.no_address.title'.tr,
+          content: 'dialog.no_address.title'.tr,
+          confirmText: 'action.understand'.tr,
         ).show();
 
         return;
       }
 
-      if (job == 'Pilih jenis pekerjaan') {
+      if (job == 'label.choose_job_type'.tr) {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'Belum memilih jenis pekerjaan',
-          content:
-              'Silahkan pilih jenis pekerjaan terlebih dahulu untuk melanjutkan',
-          confirmText: 'Mengerti',
+          title: 'dialog.no_job_type.title'.tr,
+          content: 'dialog.no_job_type.desc'.tr,
+          confirmText: 'action.understand'.tr,
         ).show();
 
         return;
@@ -98,10 +98,9 @@ class RegisterViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.error.toString(),
-        title: 'Nama tidak boleh kosong',
-        content:
-            'Silahkan isi nama lengkap anda terlebih dahulu untuk melanjutkan',
-        confirmText: 'Mengerti',
+        title: 'dialog.empty_name.title'.tr,
+        content: 'dialog.empty_name.desc'.tr,
+        confirmText: 'action.understand'.tr,
       ).show();
 
       return;
@@ -111,9 +110,9 @@ class RegisterViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'Nomor telepon tidak boleh kosong',
-        content: 'Silahkan isi nomor telepon anda terlebih dahulu',
-        confirmText: 'Mengerti',
+        title: 'dialog.empty_phone.title'.tr,
+        content: 'dialog.empty_phone.desc'.tr,
+        confirmText: 'action.understand'.tr,
       ).show();
       return;
     } else {
@@ -121,9 +120,9 @@ class RegisterViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.warning.toString(),
-          title: 'Nomor telepon tidak valid',
-          content: 'Silahkan isi nomor telepon anda dengan benar',
-          confirmText: 'Mengerti',
+          title: 'dialoh.invalid_phone.title'.tr,
+          content: 'dialog.invalid_phone.desc'.tr,
+          confirmText: 'action.understand'.tr,
         ).show();
         return;
       }
@@ -133,9 +132,9 @@ class RegisterViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'Kata sandi tidak boleh kosong',
-        content: 'Silahkan isi kata sandi anda terlebih dahulu',
-        confirmText: 'Mengerti',
+        title: 'dialog.empty_password.title'.tr,
+        content: 'dialog.empty_password.desc'.tr,
+        confirmText: 'action.understand'.tr,
       ).show();
       return;
     }
@@ -144,9 +143,9 @@ class RegisterViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'Konfirmasi kata sandi tidak boleh kosong',
-        content: 'Silahkan isi konfirmasi kata sandi anda terlebih dahulu',
-        confirmText: 'Mengerti',
+        title: 'dialog.empty_password_confirm.title'.tr,
+        content: 'dialog.empty_password_confirm.desc'.tr,
+        confirmText: 'action.understand'.tr,
       ).show();
       return;
     }
@@ -155,9 +154,9 @@ class RegisterViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'Konfirmasi kata sandi tidak sesuai',
-        content: 'Silahkan isi konfirmasi kata sandi anda dengan benar',
-        confirmText: 'Mengerti',
+        title: 'dialog.password_not_match.title'.tr,
+        content: 'dialog.password_not_match.desc'.tr,
+        confirmText: 'action.understand'.tr,
       ).show();
       return;
     }
@@ -169,9 +168,9 @@ class RegisterViewModel extends ViewModel {
           SweetDialog(
             dialogType: DialogType.error.toString(),
             context: context,
-            title: 'Kata sandi tidak valid',
+            title: 'dialog.invalid_password.title'.tr,
             content: message,
-            confirmText: 'Mengerti',
+            confirmText: 'action.understand'.tr,
           ).show();
         },
       ),

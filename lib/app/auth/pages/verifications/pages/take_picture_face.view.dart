@@ -38,7 +38,7 @@ class _TakePictureView extends StatelessView<TakePictureViewModel> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Ambil Gambar Diri',
+          'action.take_picture'.tr,
           style: Theme.of(context).textTheme.headline4,
         ),
       ),
@@ -75,7 +75,9 @@ class _TakePictureView extends StatelessView<TakePictureViewModel> {
               ),
               onPressed: () => viewModel.takePicture(),
               child: Text(
-                viewModel.isCameraReady ? 'Ambil Gambar' : 'Ambil Ulang',
+                viewModel.isCameraReady
+                    ? 'action.take_picture'.tr
+                    : 'action.re_take_picture'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText1!

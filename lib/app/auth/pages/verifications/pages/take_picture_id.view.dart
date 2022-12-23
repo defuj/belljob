@@ -41,7 +41,7 @@ class _View extends StatelessView<TakePictureViewModel> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Verifikasi e-KTP',
+          'label.verification_id_card'.tr,
           style: Theme.of(context).textTheme.headline4,
         ),
       ),
@@ -64,7 +64,7 @@ class _View extends StatelessView<TakePictureViewModel> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Posisikan e-KTP di dalam kotak',
+                  'label.put_id_card_in_the_box'.tr,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText1!
