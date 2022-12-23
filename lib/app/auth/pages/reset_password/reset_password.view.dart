@@ -26,14 +26,14 @@ class _ResetPasswordView extends StatelessView<ResetPasswordViewModel> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Kata Sandi Baru',
+              'form.label.new_password'.tr,
               style: Theme.of(context).textTheme.headline2!.copyWith(
                   color: IColors.neutral20, fontWeight: FontWeight.w600),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text(
-                'Pastikan akun kamu tetap aman',
+                'label.safe_your_account'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
@@ -43,7 +43,7 @@ class _ResetPasswordView extends StatelessView<ResetPasswordViewModel> {
             Padding(
               padding: const EdgeInsets.only(top: 48, bottom: 4),
               child: Text(
-                'Kata Sandi Baru',
+                'form.label.new_password'.tr,
                 style: Theme.of(context).textTheme.subtitle1!.copyWith(
                       color: IColors.neutral10,
                       fontWeight: FontWeight.w500,
@@ -52,13 +52,13 @@ class _ResetPasswordView extends StatelessView<ResetPasswordViewModel> {
               ),
             ),
             InputPassword(
-              hintText: 'Masukkan kata sandi baru',
+              hintText: 'form.hint.new_password'.tr,
               onChanged: (value) => viewModel.password = value,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 24, bottom: 4),
               child: Text(
-                'Ulangi Kata Sandi',
+                'form.label.new_password_confirmation'.tr,
                 style: Theme.of(context).textTheme.subtitle1!.copyWith(
                       color: IColors.neutral10,
                       fontWeight: FontWeight.w500,
@@ -67,13 +67,13 @@ class _ResetPasswordView extends StatelessView<ResetPasswordViewModel> {
               ),
             ),
             InputPassword(
-              hintText: 'Masukkan ulang kata sandi',
+              hintText: 'form.hint.new_password_confirmation'.tr,
               onChanged: (value) => viewModel.confirmPassword = value,
             ),
             Container(
               padding: const EdgeInsets.only(top: 24, bottom: 24),
               child: ButtonPrimary(
-                text: 'Simpan',
+                text: 'action.change_password'.tr,
                 onPressed: viewModel.resetPassword,
               ),
             ),

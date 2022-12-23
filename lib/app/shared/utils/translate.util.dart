@@ -133,6 +133,16 @@ class Translate extends Translations {
           'job.type.welder': 'Tukang Las',
           'job.type.other': 'Lainnya',
           'label.put_id_card_in_the_box': 'Posisikan e-KTP di dalam kotak',
+          'form.label.new_password': 'Kata Sandi Baru',
+          'form.hint.new_password': 'Masukan Kata Sandi Baru',
+          'form.label.new_password_confirmation': 'Ulangi Kata Sandi Baru',
+          'form.hint.new_password_confirmation':
+              'Masukan Ulang Kata Sandi Baru',
+          'action.change_password': 'Ubah Kata Sandi',
+          'label.safe_your_account': 'Pastikan akun kamu tetap aman',
+          'dialog.password_changed.title': 'Kata sandi berhasil diubah',
+          'dialog.password_changed.desc':
+              'Kata sandi kamu berhasil diubah, silahkan login kembali',
         },
         'en_US': {
           'boarding.action1.title': 'Looking for Workers',
@@ -254,6 +264,15 @@ class Translate extends Translations {
           'job.type.welder': 'Welder',
           'job.type.other': 'Other',
           'label.put_id_card_in_the_box': 'Put ID Card in the box',
+          'form.label.new_password': 'New Password',
+          'form.hint.new_password': 'Enter new password',
+          'form.label.new_password_confirmation': 'Repeat New Password',
+          'form.hint.new_password_confirmation': 'Enter new password again',
+          'action.change_password': 'Change Password',
+          'label.safe_your_account': 'Safe Your Account',
+          'dialog.password_changed.title': 'Password Changed',
+          'dialog.password_changed.desc':
+              'Your password has been changed, please login again',
         },
       };
 }

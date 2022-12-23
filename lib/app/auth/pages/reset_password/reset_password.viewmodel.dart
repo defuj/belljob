@@ -16,8 +16,9 @@ class ResetPasswordViewModel extends ViewModel {
           context: context,
           barrierDismissible: false,
           dialogType: DialogType.success.toString(),
-          title: 'Kata sandi berhasil diubah',
-          content: 'Silahkan masuk kembali',
+          title: 'dialog.password_changed.title'.tr,
+          content: 'dialog.password_changed.desc'.tr,
+          confirmText: 'action.understand'.tr,
           onConfirm: () {
             Navigator.of(context).pop();
             Navigator.of(context).pop();
@@ -32,9 +33,9 @@ class ResetPasswordViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'Kata sandi belum diisi',
-          content: 'Silahkan masukkan kata sandi baru',
-          confirmText: 'Mengerti',
+          title: 'dialog.empty_password.title'.tr,
+          content: 'dialog.empty_password.desc'.tr,
+          confirmText: 'action.understand'.tr,
         ).show();
         return;
       }
@@ -43,9 +44,9 @@ class ResetPasswordViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'Konfirmasi kata sandi belum diisi',
-          content: 'Silahkan masukkan konfirmasi kata sandi baru',
-          confirmText: 'Mengerti',
+          title: 'dialog.empty_password_confirm.title'.tr,
+          content: 'dialog.empty_password_confirm.desc'.tr,
+          confirmText: 'action.understand'.tr,
         ).show();
         return;
       }
@@ -54,9 +55,9 @@ class ResetPasswordViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'Konfirmasi kata sandi tidak sesuai',
-          content: 'Silahkan masukkan konfirmasi kata sandi yang sama',
-          confirmText: 'Mengerti',
+          title: 'dialog.password_not_match.title'.tr,
+          content: 'dialog.password_not_match.desc'.tr,
+          confirmText: 'action.understand'.tr,
         ).show();
         return;
       }
@@ -68,9 +69,9 @@ class ResetPasswordViewModel extends ViewModel {
             SweetDialog(
               context: context,
               dialogType: DialogType.error.toString(),
-              title: 'Kata sandi tidak valid',
+              title: 'dialog.invalid_password.title'.tr,
               content: message,
-              confirmText: 'Mengerti',
+              confirmText: 'action.understand'.tr,
             ).show();
             return;
           },

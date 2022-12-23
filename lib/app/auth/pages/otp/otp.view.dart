@@ -48,6 +48,12 @@ class _OtpView extends StatelessView<OtpViewModel> {
               child: Expanded(
                 child: OtpTextField(
                   numberOfFields: 6,
+                  textStyle: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        color: IColors.neutral10,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 0.15,
+                      ),
+                  obscureText: true,
                   borderColor: IColors.neutral20,
                   cursorColor: IColors.neutral20,
                   focusedBorderColor: IColors.neutral20,
