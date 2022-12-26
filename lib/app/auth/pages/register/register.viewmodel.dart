@@ -13,14 +13,14 @@ class RegisterViewModel extends ViewModel {
   String? address = '';
   List<String> jobList = [
     'label.choose_job_type'.tr,
-    'job.type.builder'.tr,
-    'job.type.driver'.tr,
-    'job.type.cook'.tr,
-    'job.type.carpenter'.tr,
-    'job.type.gardener'.tr,
-    'job.type.electrician'.tr,
-    'job.type.plumber'.tr,
-    'job.type.mechanic'.tr,
+    'data.job.builder'.tr,
+    'data.job.driver'.tr,
+    'data.job.cook'.tr,
+    'data.job.carpenter'.tr,
+    'data.job.gardener'.tr,
+    'data.job.electrician'.tr,
+    'data.job.plumber'.tr,
+    'data.job.mechanic'.tr,
   ];
   String job = 'label.choose_job_type'.tr;
 

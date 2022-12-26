@@ -19,3 +19,4 @@ export 'package:dotted_border/dotted_border.dart';
 export 'package:flutter/material.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
 export 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
+export 'package:belljob/app/auth/pages/boarding/boarding.viewmodel.dart';

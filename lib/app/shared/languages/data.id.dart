@@ -1,0 +1,15 @@
+const Map<String, String> dataID = {
+  'data.job.builder': 'Tukang Bangungan',
+  'data.job.carpenter': 'Tukang Kayu',
+  'data.job.cook': 'Koki',
+  'data.job.driver': 'Supir',
+  'data.job.electrician': 'Tukang Listrik',
+  'data.job.gardener': 'Tukang Taman',
+  'data.job.maid': 'Bidan',
+  'data.job.mechanic': 'Tukang Mesin',
+  'data.job.painter': 'Tukang Cat',
+  'data.job.plumber': 'Tukang Air',
+  'data.job.seamstress': 'Tukang Jahit',
+  'data.job.welder': 'Tukang Las',
+  'data.job.other': 'Lainnya',
+};

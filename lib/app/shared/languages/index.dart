@@ -1,0 +1,10 @@
+export 'form.en.dart';
+export 'form.id.dart';
+export 'dialog.en.dart';
+export 'dialog.id.dart';
+export 'label.en.dart';
+export 'label.id.dart';
+export 'action.en.dart';
+export 'action.id.dart';
+export 'data.en.dart';
+export 'data.id.dart';

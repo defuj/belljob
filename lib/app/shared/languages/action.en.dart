@@ -1,0 +1,18 @@
+const Map<String, String> actionEN = {
+  'action.forgot_password': 'Forgot Password?',
+  'action.employer.login': 'Login as Employer',
+  'action.register': 'Register',
+  'action.worker.login': 'Login as Worker',
+  'action.login': 'Login',
+  'action.tap_to_add_picture': 'Tap to add picture',
+  'action.change_profile_picture': 'Change Profile Picture',
+  'action.send_verification_code': 'Send Verification Code',
+  'action.understand': 'Understand',
+  'action.next': 'Next',
+  'action.resend_code': 'Resend code',
+  'action.confirm': 'Confirm',
+  'action.change': 'Change',
+  'action.take_picture': 'Take Picture',
+  'action.re_take_picture': 'Re-Take Picture',
+  'action.change_password': 'Change Password',
+};
