@@ -53,3 +53,9 @@ class PasswordCheck {
     return true;
   }
 }
+
+// validate password at least 8 characters
+bool validatePassword({required String password}) {
+  RegExp regex = RegExp(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
+  return regex.hasMatch(password);
+}

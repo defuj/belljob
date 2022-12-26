@@ -1,4 +1,4 @@
-import 'package:belljob/packages.dart';
+import 'package:belljob/repositories.dart';
 
 var routes = <String, WidgetBuilder>{
   '/': (context) => const Splash(),

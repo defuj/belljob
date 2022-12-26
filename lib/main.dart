@@ -1,4 +1,4 @@
-import 'packages.dart';
+import 'repositories.dart';
 
 Future<void> main() async {
   // runApp(const Root());
@@ -22,7 +22,7 @@ Future<void> main() async {
     getPages: getRoutes,
     translations: Translate(),
     locale: Get.deviceLocale, // Locale('id', 'ID')
-    fallbackLocale: const Locale('id', 'ID'), //Locale('en', 'US')
+    fallbackLocale: const Locale('en', 'US'), //Locale('en', 'US')
   ));
 }
 

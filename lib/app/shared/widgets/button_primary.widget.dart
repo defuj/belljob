@@ -1,4 +1,4 @@
-import 'package:belljob/packages.dart';
+import 'package:belljob/repositories.dart';
 
 class ButtonPrimary extends StatefulWidget {
   final String text;

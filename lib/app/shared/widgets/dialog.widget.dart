@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:belljob/packages.dart';
+import 'package:belljob/repositories.dart';
 
 class SweetDialog extends AlertDialog {
   final BuildContext context;

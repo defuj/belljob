@@ -1,4 +1,4 @@
-import 'package:belljob/packages.dart';
+import 'package:belljob/repositories.dart';
 
 class Splash extends StatelessWidget {
   const Splash({super.key});

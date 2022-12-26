@@ -1,5 +1,5 @@
 import 'package:belljob/app/auth/pages/register/verify_id.view.dart';
-import 'package:belljob/packages.dart';
+import 'package:belljob/repositories.dart';
 
 class RegisterViewModel extends ViewModel {
   final box = GetStorage();

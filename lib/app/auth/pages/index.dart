@@ -4,6 +4,5 @@ export 'login/index.dart';
 export 'otp/index.dart';
 export 'register/index.dart';
 export 'reset_password/index.dart';
-export 'splash/index.dart';
-export 'verifications/index.dart';
+export 'face_validator/index.dart';
 export 'find_account/index.dart';

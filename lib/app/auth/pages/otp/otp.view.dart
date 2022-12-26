@@ -1,4 +1,4 @@
-import 'package:belljob/packages.dart';
+import 'package:belljob/repositories.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class Otp extends StatelessWidget {

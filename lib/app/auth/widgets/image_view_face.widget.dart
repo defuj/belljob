@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:belljob/packages.dart';
+import 'package:belljob/repositories.dart';
 import 'dart:math' as math;
 
 class ResultImageFace extends StatelessWidget {

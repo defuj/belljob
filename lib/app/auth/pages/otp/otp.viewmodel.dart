@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:belljob/packages.dart';
+import 'package:belljob/repositories.dart';
 
 class OtpViewModel extends ViewModel {
   final String? nextPage;

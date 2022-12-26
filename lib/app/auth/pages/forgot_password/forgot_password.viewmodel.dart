@@ -1,4 +1,4 @@
-import 'package:belljob/packages.dart';
+import 'package:belljob/repositories.dart';
 
 class ForgotPasswordViewModel extends ViewModel {
   /// A callback after the MVVM widget's initState is called.

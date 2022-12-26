@@ -1,5 +1,5 @@
 import 'dart:developer';
-import 'package:belljob/packages.dart';
+import 'package:belljob/repositories.dart';
 
 class AppViewModel extends ViewModel {
   int counter = 0;
