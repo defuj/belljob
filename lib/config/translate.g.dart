@@ -9,16 +9,10 @@ class Translate extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         LanguageType.id: {
-          ...dialogID,
-          ...formID,
-          ...dataID,
-          ...AuthLanguages.id,
+          ...AuthLanguages().id,
         },
         LanguageType.en: {
-          ...dialogEN,
-          ...formEN,
-          ...dataEN,
-          ...AuthLanguages.en,
+          ...AuthLanguages().en,
         },
       };
 }

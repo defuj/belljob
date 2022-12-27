@@ -1,4 +1,4 @@
-const Map<String, String> contentEnglish = {
+const Map<String, String> english = {
   'auth.worker.title': 'Looking for Workers',
   'auth.worker.desc': 'Order services to help your work',
   'auth.employer.title': 'Become a Worker',

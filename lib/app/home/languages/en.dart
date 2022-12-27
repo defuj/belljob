@@ -1,1 +1,1 @@
-const Map<String, String> contentEnglish = {};
+const Map<String, String> english = {};

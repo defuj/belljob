@@ -1,4 +1,4 @@
-const Map<String, String> contentIndo = {
+const Map<String, String> indonesia = {
   'auth.worker.title': 'Cari Pekerja',
   'auth.worker.desc': 'Pesan jasa untuk membantu pekerjaanmu',
   'auth.employer.title': 'Jadi Pekerja',
