@@ -7,7 +7,7 @@ class InputPhoneNumber extends StatefulWidget {
   const InputPhoneNumber({
     super.key,
     this.onChanged,
-    this.hintText = 'Masukan Nomor Handphone',
+    this.hintText,
     this.initialValue = '',
   });
 
@@ -63,7 +63,10 @@ class _InputPhoneNumberState extends State<InputPhoneNumber> {
                 counterText: '',
                 border: InputBorder.none,
                 fillColor: IColors.neutral50,
-                hintText: widget.hintText,
+                hintText: widget.hintText ??
+                    (Get.deviceLocale?.languageCode == 'en'
+                        ? 'Enter Phone Number'
+                        : 'Masukan Nomor Handphone'),
                 hintStyle: Theme.of(context)
                     .textTheme
                     .bodyText2!
