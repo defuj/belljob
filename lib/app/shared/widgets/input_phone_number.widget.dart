@@ -22,7 +22,8 @@ class _InputPhoneNumberState extends State<InputPhoneNumber> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          height: 50,
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           decoration: const BoxDecoration(
             color: IColors.neutral90,
             borderRadius: BorderRadius.only(
@@ -30,14 +31,17 @@ class _InputPhoneNumberState extends State<InputPhoneNumber> {
               bottomLeft: Radius.circular(8.0),
             ),
           ),
-          child: Text(
-            '+62',
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                color: IColors.neutral20, fontWeight: FontWeight.w500),
+          child: Center(
+            child: Text(
+              '+62',
+              style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  color: IColors.neutral20, fontWeight: FontWeight.w500),
+            ),
           ),
         ),
         Expanded(
           child: Container(
+            height: 50,
             padding: const EdgeInsets.symmetric(horizontal: 8),
             decoration: const BoxDecoration(
               color: IColors.neutral95,

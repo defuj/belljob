@@ -39,7 +39,7 @@ class _View extends StatelessView<RegisterViewModel> {
             Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text(
-                'verification.id_card.note'.tr,
+                'auth.face_validator.label.id_card.note'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
@@ -72,7 +72,7 @@ class _View extends StatelessView<RegisterViewModel> {
             Padding(
               padding: const EdgeInsets.only(bottom: 8),
               child: Text(
-                'verification.id_card.desc'.tr,
+                'auth.face_validator.label.id_card.desc'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!

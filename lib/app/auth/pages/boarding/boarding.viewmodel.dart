@@ -1,10 +1,12 @@
+import 'dart:developer';
+
 import 'package:belljob/repositories.dart';
 
 class BoardingViewModel extends ViewModel {
   var panelController = PanelController();
   final box = GetStorage();
 
-  String? _lang = 'id';
+  String? _lang = Get.deviceLocale?.languageCode;
   String? get lang => _lang;
   set lang(String? value) {
     _lang = value;
@@ -30,6 +32,7 @@ class BoardingViewModel extends ViewModel {
     // box.listenKey('lang', (value) {
     //   lang = value;
     // });
+    log('Bahasa : ${Get.deviceLocale?.languageCode}');
   }
 
   @override

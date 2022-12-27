@@ -42,14 +42,14 @@ class _LoginView extends StatelessView<LoginViewModel> {
             ),
           ),
           Text(
-            'auth.login.welcome'.tr,
+            'auth.login.label.welcome'.tr,
             style: Theme.of(context).textTheme.headline2!.copyWith(
                 color: IColors.neutral20, fontWeight: FontWeight.w600),
           ),
           Container(
             margin: const EdgeInsets.only(top: 8),
             child: Text(
-              'auth.login.employer'.tr,
+              'auth.login.label.employer'.tr,
               style: Theme.of(context)
                   .textTheme
                   .bodyText2!
