@@ -1,15 +1,1 @@
-const Map<String, String> dataEN = {
-  'data.job.builder': 'Builder',
-  'data.job.carpenter': 'Carpenter',
-  'data.job.cook': 'Cook',
-  'data.job.driver': 'Driver',
-  'data.job.electrician': 'Electrician',
-  'data.job.gardener': 'Gardener',
-  'data.job.maid': 'Maid',
-  'data.job.mechanic': 'Mechanic',
-  'data.job.painter': 'Painter',
-  'data.job.plumber': 'Plumber',
-  'data.job.seamstress': 'Seamstress',
-  'data.job.welder': 'Welder',
-  'data.job.other': 'Other',
-};
+const Map<String, String> dataEN = {};

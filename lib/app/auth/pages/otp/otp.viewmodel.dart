@@ -16,9 +16,9 @@ class OtpViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'dialog.empty_verification_code.title'.tr,
-        content: 'dialog.empty_verification_code.desc'.tr,
-        confirmText: 'action.understand'.tr,
+        title: 'auth.dialog.empty_verification_code.title'.tr,
+        content: 'auth.dialog.empty_verification_code.desc'.tr,
+        confirmText: 'auth.understand'.tr,
       ).show();
       return;
     }
@@ -28,9 +28,9 @@ class OtpViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'dialog.invalid_verification_code.title'.tr,
-        content: 'dialog.invalid_verification_code.desc'.tr,
-        confirmText: 'action.understand'.tr,
+        title: 'auth.dialog.invalid_verification_code.title'.tr,
+        content: 'auth.dialog.invalid_verification_code.desc'.tr,
+        confirmText: 'auth.understand'.tr,
       ).show();
       return;
     }

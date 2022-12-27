@@ -12,25 +12,25 @@ class RegisterViewModel extends ViewModel {
   String? accountType;
   String? address = '';
   List<String> jobList = [
-    'label.choose_job_type'.tr,
-    'data.job.builder'.tr,
-    'data.job.driver'.tr,
-    'data.job.cook'.tr,
-    'data.job.carpenter'.tr,
-    'data.job.gardener'.tr,
-    'data.job.electrician'.tr,
-    'data.job.plumber'.tr,
-    'data.job.mechanic'.tr,
+    'auth.data.choose_job_type'.tr,
+    'auth.data.job.builder'.tr,
+    'auth.data.job.driver'.tr,
+    'auth.data.job.cook'.tr,
+    'auth.data.job.carpenter'.tr,
+    'auth.data.job.gardener'.tr,
+    'auth.data.job.electrician'.tr,
+    'auth.data.job.plumber'.tr,
+    'auth.data.job.mechanic'.tr,
   ];
-  String job = 'label.choose_job_type'.tr;
+  String job = 'auth.data.choose_job_type'.tr;
 
   List<String> genderList = [
-    'label.gender.male'.tr,
-    'label.gender.female'.tr,
+    'auth.data.gender.male'.tr,
+    'auth.data.gender.female'.tr,
   ];
 
   int genderNum = 0;
-  String gender = 'label.gender.male'.tr;
+  String gender = 'auth.data.gender.male'.tr;
 
   void updateGender(int number) {
     genderNum = number;
@@ -61,9 +61,9 @@ class RegisterViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'dialog.no_profile_picture.title'.tr,
-          content: 'dialog.no_profile_picture.desc'.tr,
-          confirmText: 'action.understand'.tr,
+          title: 'auth.dialog.no_profile_picture.title'.tr,
+          content: 'auth.dialog.no_profile_picture.desc'.tr,
+          confirmText: 'auth.understand'.tr,
         ).show();
 
         return;
@@ -73,21 +73,21 @@ class RegisterViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'dialog.no_address.title'.tr,
-          content: 'dialog.no_address.title'.tr,
-          confirmText: 'action.understand'.tr,
+          title: 'auth.dialog.no_address.title'.tr,
+          content: 'auth.dialog.no_address.title'.tr,
+          confirmText: 'auth.understand'.tr,
         ).show();
 
         return;
       }
 
-      if (job == 'label.choose_job_type'.tr) {
+      if (job == 'auth.data.choose_job_type'.tr) {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'dialog.no_job_type.title'.tr,
-          content: 'dialog.no_job_type.desc'.tr,
-          confirmText: 'action.understand'.tr,
+          title: 'auth.dialog.no_job_type.title'.tr,
+          content: 'auth.dialog.no_job_type.desc'.tr,
+          confirmText: 'auth.understand'.tr,
         ).show();
 
         return;
@@ -98,9 +98,9 @@ class RegisterViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.error.toString(),
-        title: 'dialog.empty_name.title'.tr,
-        content: 'dialog.empty_name.desc'.tr,
-        confirmText: 'action.understand'.tr,
+        title: 'auth.dialog.empty_name.title'.tr,
+        content: 'auth.dialog.empty_name.desc'.tr,
+        confirmText: 'auth.understand'.tr,
       ).show();
 
       return;
@@ -110,9 +110,9 @@ class RegisterViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'dialog.empty_phone.title'.tr,
-        content: 'dialog.empty_phone.desc'.tr,
-        confirmText: 'action.understand'.tr,
+        title: 'auth.dialog.empty_phone.title'.tr,
+        content: 'auth.dialog.empty_phone.desc'.tr,
+        confirmText: 'auth.understand'.tr,
       ).show();
       return;
     } else {
@@ -121,8 +121,8 @@ class RegisterViewModel extends ViewModel {
           context: context,
           dialogType: DialogType.warning.toString(),
           title: 'dialoh.invalid_phone.title'.tr,
-          content: 'dialog.invalid_phone.desc'.tr,
-          confirmText: 'action.understand'.tr,
+          content: 'auth.dialog.invalid_phone.desc'.tr,
+          confirmText: 'auth.understand'.tr,
         ).show();
         return;
       }
@@ -132,9 +132,9 @@ class RegisterViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'dialog.empty_password.title'.tr,
-        content: 'dialog.empty_password.desc'.tr,
-        confirmText: 'action.understand'.tr,
+        title: 'auth.dialog.empty_password.title'.tr,
+        content: 'auth.dialog.empty_password.desc'.tr,
+        confirmText: 'auth.understand'.tr,
       ).show();
       return;
     }
@@ -143,9 +143,9 @@ class RegisterViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'dialog.empty_password_confirm.title'.tr,
-        content: 'dialog.empty_password_confirm.desc'.tr,
-        confirmText: 'action.understand'.tr,
+        title: 'auth.dialog.empty_password_confirm.title'.tr,
+        content: 'auth.dialog.empty_password_confirm.desc'.tr,
+        confirmText: 'auth.understand'.tr,
       ).show();
       return;
     }
@@ -154,9 +154,9 @@ class RegisterViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'dialog.password_not_match.title'.tr,
-        content: 'dialog.password_not_match.desc'.tr,
-        confirmText: 'action.understand'.tr,
+        title: 'auth.dialog.password_not_match.title'.tr,
+        content: 'auth.dialog.password_not_match.desc'.tr,
+        confirmText: 'auth.understand'.tr,
       ).show();
       return;
     }
@@ -168,9 +168,9 @@ class RegisterViewModel extends ViewModel {
           SweetDialog(
             dialogType: DialogType.error.toString(),
             context: context,
-            title: 'dialog.invalid_password.title'.tr,
+            title: 'auth.dialog.invalid_password.title'.tr,
             content: message,
-            confirmText: 'action.understand'.tr,
+            confirmText: 'auth.understand'.tr,
           ).show();
         },
       ),

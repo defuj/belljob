@@ -100,7 +100,7 @@ class _View extends StatelessView<BoardingViewModel> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'auth.boarding.label.worker.title'.tr,
+                              'auth.worker.title'.tr,
                               style: Theme.of(context)
                                   .textTheme
                                   .headline4!
@@ -110,7 +110,7 @@ class _View extends StatelessView<BoardingViewModel> {
                             ),
                             const SizedBox(height: 16),
                             Text(
-                              'auth.boarding.label.worker.desc'.tr,
+                              'auth.worker.desc'.tr,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2!
@@ -137,7 +137,7 @@ class _View extends StatelessView<BoardingViewModel> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'auth.boarding.label.employer.title'.tr,
+                              'auth.employer.title'.tr,
                               style: Theme.of(context)
                                   .textTheme
                                   .headline4!
@@ -147,7 +147,7 @@ class _View extends StatelessView<BoardingViewModel> {
                             ),
                             const SizedBox(height: 16),
                             Text(
-                              'auth.boarding.label.employer.desc'.tr,
+                              'auth.employer.desc'.tr,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2!
@@ -164,35 +164,35 @@ class _View extends StatelessView<BoardingViewModel> {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: 'auth.boarding.label.agreement.1'.tr,
+                        text: 'auth.agreement.1'.tr,
                         style: Theme.of(context)
                             .textTheme
                             .bodyText2!
                             .copyWith(color: IColors.neutral20),
                       ),
                       TextSpan(
-                        text: 'auth.boarding.label.agreement.terms'.tr,
+                        text: 'auth.agreement.terms'.tr,
                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: IColors.secondary50,
                             fontWeight: FontWeight.w600),
                         recognizer: TapGestureRecognizer()..onTap = () => {},
                       ),
                       TextSpan(
-                        text: 'auth.boarding.label.agreement.2'.tr,
+                        text: 'auth.agreement.2'.tr,
                         style: Theme.of(context)
                             .textTheme
                             .bodyText2!
                             .copyWith(color: IColors.neutral10),
                       ),
                       TextSpan(
-                        text: 'auth.boarding.label.agreement.privacy'.tr,
+                        text: 'auth.agreement.privacy'.tr,
                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: IColors.secondary50,
                             fontWeight: FontWeight.w600),
                         recognizer: TapGestureRecognizer()..onTap = () => {},
                       ),
                       TextSpan(
-                        text: 'auth.boarding.label.agreement.3'.tr,
+                        text: 'auth.agreement.3'.tr,
                         style: Theme.of(context)
                             .textTheme
                             .bodyText2!

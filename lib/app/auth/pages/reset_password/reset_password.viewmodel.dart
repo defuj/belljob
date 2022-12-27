@@ -16,9 +16,9 @@ class ResetPasswordViewModel extends ViewModel {
           context: context,
           barrierDismissible: false,
           dialogType: DialogType.success.toString(),
-          title: 'dialog.password_changed.title'.tr,
-          content: 'dialog.password_changed.desc'.tr,
-          confirmText: 'action.understand'.tr,
+          title: 'auth.dialog.password_changed.title'.tr,
+          content: 'auth.dialog.password_changed.desc'.tr,
+          confirmText: 'auth.understand'.tr,
           onConfirm: () {
             Navigator.of(context).pop();
             Navigator.of(context).pop();
@@ -33,9 +33,9 @@ class ResetPasswordViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'dialog.empty_password.title'.tr,
-          content: 'dialog.empty_password.desc'.tr,
-          confirmText: 'action.understand'.tr,
+          title: 'auth.dialog.empty_password.title'.tr,
+          content: 'auth.dialog.empty_password.desc'.tr,
+          confirmText: 'auth.understand'.tr,
         ).show();
         return;
       }
@@ -44,9 +44,9 @@ class ResetPasswordViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'dialog.empty_password_confirm.title'.tr,
-          content: 'dialog.empty_password_confirm.desc'.tr,
-          confirmText: 'action.understand'.tr,
+          title: 'auth.dialog.empty_password_confirm.title'.tr,
+          content: 'auth.dialog.empty_password_confirm.desc'.tr,
+          confirmText: 'auth.understand'.tr,
         ).show();
         return;
       }
@@ -55,9 +55,9 @@ class ResetPasswordViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.error.toString(),
-          title: 'dialog.password_not_match.title'.tr,
-          content: 'dialog.password_not_match.desc'.tr,
-          confirmText: 'action.understand'.tr,
+          title: 'auth.dialog.password_not_match.title'.tr,
+          content: 'auth.dialog.password_not_match.desc'.tr,
+          confirmText: 'auth.understand'.tr,
         ).show();
         return;
       }
@@ -69,9 +69,9 @@ class ResetPasswordViewModel extends ViewModel {
             SweetDialog(
               context: context,
               dialogType: DialogType.error.toString(),
-              title: 'dialog.invalid_password.title'.tr,
+              title: 'auth.dialog.invalid_password.title'.tr,
               content: message,
-              confirmText: 'action.understand'.tr,
+              confirmText: 'auth.understand'.tr,
             ).show();
             return;
           },

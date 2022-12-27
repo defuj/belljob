@@ -15,17 +15,17 @@ class PasswordCheck {
 
   void process(PasswordResult result) {
     if (password!.length < 8) {
-      result.onPasswordInvalid('label.password_min_length'.tr);
+      result.onPasswordInvalid('auth.data.password_min_length'.tr);
     } else if (password!.length > 20) {
-      result.onPasswordInvalid('label.password_max_length'.tr);
+      result.onPasswordInvalid('auth.data.password_max_length'.tr);
     } else if (password!.contains(' ')) {
-      result.onPasswordInvalid('label.password_no_space'.tr);
+      result.onPasswordInvalid('auth.data.password_no_space'.tr);
     } else if (!password!.contains(RegExp(r'[A-Z]'))) {
-      result.onPasswordInvalid('label.password_capital_letter'.tr);
+      result.onPasswordInvalid('auth.data.password_capital_letter'.tr);
     } else if (!password!.contains(RegExp(r'[a-z]'))) {
-      result.onPasswordInvalid('label.password_lowercase_letter'.tr);
+      result.onPasswordInvalid('auth.data.password_lowercase_letter'.tr);
     } else if (!password!.contains(RegExp(r'[0-9]'))) {
-      result.onPasswordInvalid('label.password_number'.tr);
+      result.onPasswordInvalid('auth.data.password_number'.tr);
     } else {
       result.onPasswordValid();
     }

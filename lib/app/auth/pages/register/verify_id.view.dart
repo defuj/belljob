@@ -21,7 +21,7 @@ class _View extends StatelessView<RegisterViewModel> {
       backgroundColor: Colors.white,
       appBar: appBar(
         context: context,
-        title: 'label.verification_id_card'.tr,
+        title: 'auth.verification_id_card'.tr,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -32,14 +32,14 @@ class _View extends StatelessView<RegisterViewModel> {
             Text(
               viewModel.idPicturePath == null
                   ? 'label.preview_id_card'.tr
-                  : 'label.confirm_id_card'.tr,
+                  : 'auth.confirm_id_card'.tr,
               style: Theme.of(context).textTheme.headline2!.copyWith(
                   color: IColors.neutral10, fontWeight: FontWeight.w600),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text(
-                'auth.face_validator.label.id_card.note'.tr,
+                'auth.id_card.note'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
@@ -72,7 +72,7 @@ class _View extends StatelessView<RegisterViewModel> {
             Padding(
               padding: const EdgeInsets.only(bottom: 8),
               child: Text(
-                'auth.face_validator.label.id_card.desc'.tr,
+                'auth.id_card.desc'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
@@ -85,18 +85,18 @@ class _View extends StatelessView<RegisterViewModel> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ButtonSecondary(
-                      text: 'action.re_take_picture'.tr,
+                      text: 'auth.re_take_picture'.tr,
                       onPressed: () =>
                           viewModel.takePictureId(pathName: 'idPicturePath'),
                     ),
                     const SizedBox(width: 8),
-                    ButtonPrimary(text: 'action.confirm'.tr, onPressed: () {})
+                    ButtonPrimary(text: 'auth.confirm'.tr, onPressed: () {})
                   ],
                 ),
               ),
             if (viewModel.idPicturePath == null)
               ButtonPrimary(
-                text: 'action.take_picture'.tr,
+                text: 'auth.take_picture'.tr,
                 onPressed: () =>
                     viewModel.takePictureId(pathName: 'idPicturePath'),
               ),

@@ -19,9 +19,9 @@ class FindAccountViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'dialog.empty_phone.title'.tr,
-        content: 'dialog.empty_phone.desc'.tr,
-        confirmText: 'action.understand'.tr,
+        title: 'auth.dialog.empty_phone.title'.tr,
+        content: 'auth.dialog.empty_phone.desc'.tr,
+        confirmText: 'auth.understand'.tr,
       ).show();
       return;
     }
@@ -50,9 +50,9 @@ class FindAccountViewModel extends ViewModel {
       SweetDialog(
         context: context,
         dialogType: DialogType.warning.toString(),
-        title: 'dialog.invalid_phone.title'.tr,
-        content: 'dialog.invalid_phone.desc'.tr,
-        confirmText: 'action.understand'.tr,
+        title: 'auth.dialog.invalid_phone.title'.tr,
+        content: 'auth.dialog.invalid_phone.desc'.tr,
+        confirmText: 'auth.understand'.tr,
       ).show();
     }
   }

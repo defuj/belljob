@@ -29,14 +29,14 @@ class _OtpView extends StatelessView<OtpViewModel> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              'label.input_verification_code'.tr,
+              'auth.input_verification_code'.tr,
               style: Theme.of(context).textTheme.headline2!.copyWith(
                   color: IColors.neutral10, fontWeight: FontWeight.w600),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text(
-                'label.input_verification_code_sent'.trParams({
+                'auth.input_verification_code_sent'.trParams({
                   'phone': viewModel.phoneNumber!,
                 }),
                 style: Theme.of(context).textTheme.bodyText2!.copyWith(
@@ -76,7 +76,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'label.not_received_code'.tr,
+                    'auth.not_received_code?'.tr,
                     style: Theme.of(context).textTheme.bodyText2!.copyWith(
                           color: IColors.neutral20,
                           fontWeight: FontWeight.w400,
@@ -88,7 +88,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'label.wait'.tr,
+                          'auth.wait'.tr,
                           style:
                               Theme.of(context).textTheme.bodyText2!.copyWith(
                                     color: IColors.neutral20,
@@ -111,7 +111,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
                     InkWell(
                       onTap: viewModel.startTimer,
                       child: Text(
-                        'action.resend_code'.tr,
+                        'auth.resend_code'.tr,
                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
                               color: IColors.secondary50,
                               fontWeight: FontWeight.w500,
@@ -125,7 +125,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
             Container(
               padding: const EdgeInsets.only(top: 24, bottom: 24),
               child: ButtonPrimary(
-                text: 'action.confirm'.tr,
+                text: 'auth.confirm'.tr,
                 onPressed: viewModel.checkCode,
               ),
             ),
@@ -134,7 +134,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'label.change_phone_number'.tr,
+                    'auth.change_phone_number?'.tr,
                     style: Theme.of(context).textTheme.bodyText2!.copyWith(
                           color: IColors.neutral20,
                           fontWeight: FontWeight.w400,
@@ -144,7 +144,7 @@ class _OtpView extends StatelessView<OtpViewModel> {
                   InkWell(
                     onTap: () => Navigator.of(context).pop(),
                     child: Text(
-                      'action.change'.tr,
+                      'auth.change'.tr,
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: IColors.secondary50,
                             fontWeight: FontWeight.w500,

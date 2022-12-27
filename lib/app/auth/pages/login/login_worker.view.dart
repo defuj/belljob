@@ -43,14 +43,14 @@ class _LoginView extends StatelessView<LoginViewModel> {
               ),
             ),
             Text(
-              'auth.login.label.welcome'.tr,
+              'auth.welcome_back'.tr,
               style: Theme.of(context).textTheme.headline2!.copyWith(
                   color: IColors.neutral20, fontWeight: FontWeight.w600),
             ),
             Container(
               margin: const EdgeInsets.only(top: 8),
               child: Text(
-                'auth.login.label.worker'.tr,
+                'auth.worker'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
@@ -60,7 +60,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
             Container(
               margin: const EdgeInsets.only(top: 32),
               child: Text(
-                'form.label.phone'.tr,
+                'auth.form.label.phone'.tr,
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       color: IColors.neutral10,
                       fontWeight: FontWeight.w500,
@@ -68,19 +68,19 @@ class _LoginView extends StatelessView<LoginViewModel> {
               ),
             ),
             InputPhoneNumber(
-              hintText: 'form.hint.phone'.tr,
+              hintText: 'auth.form.hint.phone'.tr,
               onChanged: (value) => viewModel.phone = '+62$value',
             ),
             Container(
               margin: const EdgeInsets.only(top: 16),
               child: Text(
-                'form.label.password'.tr,
+                'auth.form.label.password'.tr,
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                     color: IColors.neutral10, fontWeight: FontWeight.w500),
               ),
             ),
             InputPassword(
-              hintText: 'form.hint.password'.tr,
+              hintText: 'auth.form.hint.password'.tr,
               onChanged: (value) => viewModel.password = value,
             ),
             Container(
@@ -90,7 +90,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
                 child: InkWell(
                   onTap: viewModel.forgotPassword,
                   child: Text(
-                    'action.forgot_password'.tr,
+                    'auth.forgot_password?'.tr,
                     style: Theme.of(context).textTheme.bodyText2!.copyWith(
                         color: IColors.secondary50,
                         fontWeight: FontWeight.w500),
@@ -101,7 +101,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
             Container(
               margin: const EdgeInsets.only(top: 35, bottom: 7),
               child: ButtonPrimary(
-                text: 'action.worker.login'.tr,
+                text: 'auth.worker.login'.tr,
                 onPressed: () =>
                     viewModel.login(loginType: AccountType.worker.toString()),
               ),
@@ -111,7 +111,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: 'label.dont_have_account'.tr,
+                      text: 'auth.dont_have_account?'.tr,
                       style: Theme.of(context)
                           .textTheme
                           .bodyText2!
@@ -120,7 +120,7 @@ class _LoginView extends StatelessView<LoginViewModel> {
                     TextSpan(
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => Get.toNamed('/register_worker'),
-                      text: 'action.register'.tr,
+                      text: 'auth.register'.tr,
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
                           color: IColors.secondary50,
                           fontWeight: FontWeight.w500),

@@ -22,9 +22,9 @@ class LoginViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.success.toString(),
-          title: 'dialog.login_success.title'.tr,
-          content: 'dialog.login_success.desc'.tr,
-          confirmText: 'action.next'.tr,
+          title: 'auth.dialog.login_success.title'.tr,
+          content: 'auth.dialog.login_success.desc'.tr,
+          confirmText: 'auth.next'.tr,
         ).show();
       });
     }
@@ -34,9 +34,9 @@ class LoginViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.warning.toString(),
-          title: 'dialog.empty_phone.title'.tr,
-          content: 'dialog.empty_phone.desc'.tr,
-          confirmText: 'action.understand'.tr,
+          title: 'auth.dialog.empty_phone.title'.tr,
+          content: 'auth.dialog.empty_phone.desc'.tr,
+          confirmText: 'auth.understand'.tr,
         ).show();
         return;
       }
@@ -45,9 +45,9 @@ class LoginViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.warning.toString(),
-          title: 'dialog.invalid_phone.title'.tr,
-          content: 'dialog.invalid_phone.desc'.tr,
-          confirmText: 'action.understand'.tr,
+          title: 'auth.dialog.invalid_phone.title'.tr,
+          content: 'auth.dialog.invalid_phone.desc'.tr,
+          confirmText: 'auth.understand'.tr,
         ).show();
         return;
       }
@@ -56,9 +56,9 @@ class LoginViewModel extends ViewModel {
         SweetDialog(
           context: context,
           dialogType: DialogType.warning.toString(),
-          title: 'dialog.empty_password.title'.tr,
-          content: 'dialog.empty_password.desc'.tr,
-          confirmText: 'action.understand'.tr,
+          title: 'auth.dialog.empty_password.title'.tr,
+          content: 'auth.dialog.empty_password.desc'.tr,
+          confirmText: 'auth.understand'.tr,
         ).show();
         return;
       }
@@ -70,9 +70,9 @@ class LoginViewModel extends ViewModel {
             SweetDialog(
               context: context,
               dialogType: DialogType.error.toString(),
-              title: 'dialog.invalid_password.title'.tr,
+              title: 'auth.dialog.invalid_password.title'.tr,
               content: message,
-              confirmText: 'action.understand'.tr,
+              confirmText: 'auth.understand'.tr,
             ).show();
           },
         ),
@@ -85,7 +85,7 @@ class LoginViewModel extends ViewModel {
   void forgotPassword() {
     Get.to(FindAccount(
       nextPage: '/reset_password',
-      title: 'label.forgot_password'.tr,
+      title: 'auth.forgot_password'.tr,
       accountType: loginType,
       action: OtpAction.forgotPassword.toString(),
     ));

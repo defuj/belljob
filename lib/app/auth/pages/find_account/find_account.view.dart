@@ -48,7 +48,7 @@ class _FindAccountView extends StatelessView<FindAccountViewModel> {
             Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text(
-                'label.input_registered_phone'.tr,
+                'auth.input_registered_phone'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
@@ -58,7 +58,7 @@ class _FindAccountView extends StatelessView<FindAccountViewModel> {
             Container(
               margin: const EdgeInsets.only(top: 32, bottom: 6),
               child: Text(
-                'form.label.phone'.tr,
+                'auth.form.label.phone'.tr,
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       color: IColors.neutral10,
                       fontWeight: FontWeight.w500,
@@ -66,7 +66,7 @@ class _FindAccountView extends StatelessView<FindAccountViewModel> {
               ),
             ),
             InputPhoneNumber(
-              hintText: 'form.label.phone'.tr,
+              hintText: 'auth.form.label.phone'.tr,
               onChanged: (value) {
                 viewModel.phoneNumber = '+62$value';
               },
@@ -74,7 +74,7 @@ class _FindAccountView extends StatelessView<FindAccountViewModel> {
             Container(
               padding: const EdgeInsets.only(top: 24, bottom: 24),
               child: ButtonPrimary(
-                text: 'action.send_verification_code'.tr,
+                text: 'auth.send_verification_code'.tr,
                 onPressed: viewModel.sendVerification,
               ),
             ),
@@ -83,7 +83,7 @@ class _FindAccountView extends StatelessView<FindAccountViewModel> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'label.have_account'.tr,
+                    'auth.have_account?'.tr,
                     style: Theme.of(context).textTheme.bodyText2!.copyWith(
                           color: IColors.neutral20,
                           fontWeight: FontWeight.w400,
@@ -93,7 +93,7 @@ class _FindAccountView extends StatelessView<FindAccountViewModel> {
                   InkWell(
                     onTap: () => Navigator.of(context).pop(),
                     child: Text(
-                      'action.login'.tr,
+                      'auth.login'.tr,
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: IColors.secondary50,
                             fontWeight: FontWeight.w500,

@@ -10,18 +10,14 @@ class Translate extends Translations {
 
   Map<String, Map<String, String>> _keys = {
     LanguageType.id: {
-      ...actionID,
       ...dialogID,
       ...formID,
-      ...labelID,
       ...dataID,
       ...AuthLanguages.id,
     },
     LanguageType.en: {
-      ...actionEN,
       ...dialogEN,
       ...formEN,
-      ...labelEN,
       ...dataEN,
       ...AuthLanguages.en,
     },
