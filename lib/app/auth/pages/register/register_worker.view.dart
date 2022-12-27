@@ -20,7 +20,7 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
     return Scaffold(
       appBar: appBar(
         context: context,
-        title: 'auth.worker.title'.tr,
+        title: 'auth.register.title'.tr,
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -165,7 +165,8 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Expanded(
+                  Flexible(
+                    fit: FlexFit.loose,
                     child: Theme(
                       data: ThemeData(
                         unselectedWidgetColor: IColors.neutral20,
@@ -175,6 +176,7 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                         hoverColor: Colors.transparent,
                       ),
                       child: RadioListTile(
+                        dense: true,
                         contentPadding: EdgeInsets.zero,
                         title: Text(
                           'auth.data.gender.male'.tr,
@@ -191,7 +193,8 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                       ),
                     ),
                   ),
-                  Expanded(
+                  Flexible(
+                    fit: FlexFit.loose,
                     child: Theme(
                       data: ThemeData(
                         unselectedWidgetColor: IColors.neutral20,
@@ -201,6 +204,7 @@ class _RegisterView extends StatelessView<RegisterViewModel> {
                         hoverColor: Colors.transparent,
                       ),
                       child: RadioListTile(
+                        dense: true,
                         contentPadding: EdgeInsets.zero,
                         title: Text(
                           'auth.data.gender.female'.tr,
