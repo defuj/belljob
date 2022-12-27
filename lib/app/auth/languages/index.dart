@@ -3,9 +3,9 @@ import 'id.dart';
 
 class AuthLanguages {
   static const Map<String, String> en = {
-    ...contentIndo,
+    ...contentEnglish,
   };
   static const Map<String, String> id = {
-    ...contentEnglish,
+    ...contentIndo,
   };
 }

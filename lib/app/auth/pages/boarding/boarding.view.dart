@@ -56,9 +56,10 @@ class _View extends StatelessView<BoardingViewModel> {
                           width: 45,
                           height: 45,
                           child: ButtonCircle(
-                            isChecked: viewModel.lang == 'en' ? true : false,
+                            isChecked:
+                                viewModel.language == 'en' ? true : false,
                             text: 'EN',
-                            onPressed: () => viewModel.lang = 'en',
+                            onPressed: () => viewModel.language = 'en',
                           ),
                         ),
                         const SizedBox(width: 10),
@@ -66,9 +67,10 @@ class _View extends StatelessView<BoardingViewModel> {
                           width: 45,
                           height: 45,
                           child: ButtonCircle(
-                            isChecked: viewModel.lang == 'id' ? true : false,
+                            isChecked:
+                                viewModel.language == 'id' ? true : false,
                             text: 'ID',
-                            onPressed: () => viewModel.lang = 'id',
+                            onPressed: () => viewModel.language = 'id',
                           ),
                         ),
                       ],

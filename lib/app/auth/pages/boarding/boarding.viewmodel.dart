@@ -6,12 +6,14 @@ class BoardingViewModel extends ViewModel {
   var panelController = PanelController();
   final box = GetStorage();
 
-  String? _lang = Get.deviceLocale?.languageCode;
-  String? get lang => _lang;
-  set lang(String? value) {
-    _lang = value;
+  String? _language = Get.locale!.languageCode;
+  String? get language => _language;
+  set language(String? value) {
+    _language = value;
     Get.updateLocale(Locale(value!));
     notifyListeners();
+
+    log('Language Current : ${Get.locale?.languageCode}');
   }
 
   String? _loginType;
@@ -28,11 +30,8 @@ class BoardingViewModel extends ViewModel {
   }
 
   @override
-  Future<void> init() async {
-    // box.listenKey('lang', (value) {
-    //   lang = value;
-    // });
-    log('Bahasa : ${Get.deviceLocale?.languageCode}');
+  void init() {
+    log('Language Current : ${Get.locale?.languageCode}');
   }
 
   @override

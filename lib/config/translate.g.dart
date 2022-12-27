@@ -6,33 +6,19 @@ class LanguageType {
 }
 
 class Translate extends Translations {
-  final box = GetStorage();
-
-  Map<String, Map<String, String>> _keys = {
-    LanguageType.id: {
-      ...dialogID,
-      ...formID,
-      ...dataID,
-      ...AuthLanguages.id,
-    },
-    LanguageType.en: {
-      ...dialogEN,
-      ...formEN,
-      ...dataEN,
-      ...AuthLanguages.en,
-    },
-  };
-
   @override
-  Map<String, Map<String, String>> get keys => _keys;
-
-  set keys(Map<String, Map<String, String>> value) {
-    _keys = value;
-  }
-
-  Translate() {
-    box.listenKey('languages', (value) {
-      keys.addAll(value);
-    });
-  }
+  Map<String, Map<String, String>> get keys => {
+        LanguageType.id: {
+          ...dialogID,
+          ...formID,
+          ...dataID,
+          ...AuthLanguages.id,
+        },
+        LanguageType.en: {
+          ...dialogEN,
+          ...formEN,
+          ...dataEN,
+          ...AuthLanguages.en,
+        },
+      };
 }
