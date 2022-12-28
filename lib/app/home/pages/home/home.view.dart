@@ -171,14 +171,28 @@ class _View extends StatelessView<HomeFragmentViewModel> {
               child: GridView.count(
                 crossAxisCount: 3,
                 shrinkWrap: true,
-                children: List.generate(9, (index) {
+                children: viewModel.jobs.map((job) {
                   return Center(
-                    child: Text(
-                      'Item $index',
-                      style: Theme.of(context).textTheme.headline5,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          job.icon!,
+                          width: 46,
+                          height: 46,
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          job.title!,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.caption!.copyWith(
+                              color: IColors.neutral10,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
                     ),
                   );
-                }),
+                }).toList(),
               ),
             ),
           ],
