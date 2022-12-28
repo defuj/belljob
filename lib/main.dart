@@ -8,11 +8,11 @@ Future<void> main() async {
     textTheme: textTheme,
   );
 
-  var darkTheme = ThemeData(
-    useMaterial3: true,
-    colorScheme: darkColorScheme,
-    textTheme: textTheme,
-  );
+//   var darkTheme = ThemeData(
+//     useMaterial3: true,
+//     colorScheme: darkColorScheme,
+//     textTheme: textTheme,
+//   );
   await GetStorage.init();
   runApp(GetMaterialApp(
     title: 'Bell Job',

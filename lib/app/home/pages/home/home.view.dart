@@ -151,36 +151,34 @@ class _View extends StatelessView<HomeFragmentViewModel> {
             ),
             const SizedBox(height: 24),
             Container(
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(24),
-                    topRight: Radius.circular(24),
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(24),
+                  topRight: Radius.circular(24),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: IColors.neutral70.withOpacity(0.1),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 0), // changes position of shadow
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: IColors.neutral70.withOpacity(0.1),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: const Offset(0, 0), // changes position of shadow
+                ],
+              ),
+              child: GridView.count(
+                crossAxisCount: 3,
+                shrinkWrap: true,
+                children: List.generate(9, (index) {
+                  return Center(
+                    child: Text(
+                      'Item $index',
+                      style: Theme.of(context).textTheme.headline5,
                     ),
-                  ],
-                ),
-                child: GridView.count(
-                  crossAxisCount: 3,
-                  shrinkWrap: true,
-                  children: List.generate(9, (index) {
-                    return Center(
-                      child: Text(
-                        'Item $index',
-                        style: Theme.of(context).textTheme.headline5,
-                      ),
-                    );
-                  }),
-                ),
+                  );
+                }),
               ),
             ),
           ],
