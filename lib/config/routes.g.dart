@@ -1,3 +1,4 @@
+import 'package:belljob/app/home/home.view.dart';
 import 'package:belljob/repositories.dart';
 
 var routes = <String, WidgetBuilder>{
@@ -39,6 +40,11 @@ var getRoutes = [
   GetPage(
     name: '/main',
     page: () => const App(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/home',
+    page: () => const Home(),
     transition: Transition.cupertino,
   ),
 ];

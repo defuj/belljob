@@ -19,13 +19,7 @@ class LoginViewModel extends ViewModel {
       // timeout for testing
       Future.delayed(const Duration(seconds: 3), () {
         loading.dismiss();
-        SweetDialog(
-          context: context,
-          dialogType: DialogType.success.toString(),
-          title: 'auth.dialog.login_success.title'.tr,
-          content: 'auth.dialog.login_success.desc'.tr,
-          confirmText: 'auth.next'.tr,
-        ).show();
+        Get.offAllNamed('/home');
       });
     }
 

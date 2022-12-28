@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 abstract class IColors {
   static const neutral10 = Color(0xFF1B1B1F);
   static const neutral20 = Color(0xFF313034);
+  static const neutral30 = Color(0xFF47464A);
   static const neutral50 = Color(0xFF78767A);
   static const neutral60 = Color(0xFF929094);
   static const neutral70 = Color(0xFFADAAAF);

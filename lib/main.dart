@@ -17,7 +17,7 @@ Future<void> main() async {
   runApp(GetMaterialApp(
     title: 'Bell Job',
     theme: lightTheme,
-    darkTheme: darkTheme,
+    // darkTheme: darkTheme,
     initialRoute: '/splash',
     getPages: getRoutes,
     translations: Translate(),

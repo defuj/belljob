@@ -10,9 +10,11 @@ class Translate extends Translations {
   Map<String, Map<String, String>> get keys => {
         LanguageType.id: {
           ...AuthLanguages().id,
+          ...HomeLanguages().id,
         },
         LanguageType.en: {
           ...AuthLanguages().en,
+          ...HomeLanguages().en,
         },
       };
 }
